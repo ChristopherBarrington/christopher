@@ -1,12 +1,12 @@
 Package: christopher
-Title: Tools To Make My R Life Easier
+Title: Tools To Make R Life Easier
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Christopher",
            family = "Barrington",
            role = c("aut", "cre"),
            email = "christopher.barrington@crick.ac.uk",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           comment = c(ORCID = "0000-0003-1281-2658"))
 Description: Provides functions to do all kinds of generic and repetitive tasks: plotting an manipulating ggplots, data wrangling, resizing plots.
 License: What license it uses
 Encoding: UTF-8

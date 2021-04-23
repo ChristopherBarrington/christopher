@@ -11,3 +11,4 @@ Description: Provides functions to do all kinds of generic and repetitive tasks:
 License: What license it uses
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.0.2

@@ -40,7 +40,8 @@
 
 
 <meta property="og:title" content="Lazy load a knitr chunk — lazyload_cached_chunk" />
-<meta property="og:description" content="Lazy load a knitr chunk" />
+<meta property="og:description" content="Lazy load a knitr chunk
+Lazy load all chunks in a cache" />
 
 
 
@@ -89,7 +90,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/ChristopherBarrington/helpr/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -104,12 +110,13 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Lazy load a knitr chunk</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/ChristopherBarrington/helpr/blob/master/R/knitr_caches.R'><code>R/knitr_caches.R</code></a></small>
     <div class="hidden name"><code>lazyload_cached_chunk.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Lazy load a knitr chunk</p>
+<p>Lazy load all chunks in a cache</p>
     </div>
 
     <pre class="usage"><span class='fu'>lazyload_cached_chunk</span><span class='op'>(</span>
@@ -117,7 +124,9 @@
   <span class='va'>filter</span>,
   path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/basename.html'>dirname</a></span><span class='op'>(</span><span class='va'>chunk</span><span class='op'>)</span>,
   env <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='op'>)</span></pre>
+<span class='op'>)</span>
+
+<span class='fu'>load_all_chunks</span><span class='op'>(</span>cache <span class='op'>=</span> <span class='st'>"cache"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -132,14 +141,28 @@
     </tr>
     <tr>
       <th>path</th>
-      <td><p>Root path within which caches (`*rdx`) are searched</p></td>
+      <td><p>Root path within which cached (`*rdx`) are searched</p></td>
     </tr>
     <tr>
       <th>env</th>
       <td><p>Environment into which objects are loaded</p></td>
     </tr>
+    <tr>
+      <th>cache</th>
+      <td><p>Path to the cache from which all chunks are lazily loaded</p></td>
+    </tr>
     </table>
 
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Any existing objects in the environment will be overwritten when chunk(s) are loaded.</p>
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    
+<ul>
+<li><p><code>lazyload_cached_chunk</code>: Lazy load a cached chunk</p></li>
+<li><p><code>load_all_chunks</code>: Lazy load all cached chunks (alphabetically)</p></li>
+</ul>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -33,5 +33,5 @@ lazyload_cached_chunk <- function(chunk='unnamed-chunk', filter, path=dirname(ch
       filter_func <- function(x) x %in% filter
 
     lazyLoad(chunk_file, envir=env, filter=filter_func)
-    chunk_file
+    invisible(chunk_file)
 }

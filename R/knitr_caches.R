@@ -1,21 +1,12 @@
-#' Lazy load all chunks in a cache
-#' 
-#' @param cache Path to the cache from which all chunks are lazily loaded
-#' 
-#' @export
-#' 
-load_all_chunks <- function(cache='cache')
-  list.files(cache, pattern='*RData') %>%
-    str_remove('.RData') %>%
-    plyr::l_ply(lazyload_cached_chunk, path=cache)
-
 #' Lazy load a knitr chunk
 #'
 #' @param chunk Name of cached chunk (from Rmd). Can be a path to a chunk (partial), from which `path` will be taken,
 #' @param filter Character vector of object names to retain
-#' @param path Root path within which caches (`*rdx`) are searched
+#' @param path Root path within which cached (`*rdx`) are searched
 #' @param env Environment into which objects are loaded
 #'
+#' @describeIn lazyload_cached_chunk Lazy load a cached chunk
+#' 
 #' @export
 #' 
 lazyload_cached_chunk <- function(chunk='unnamed-chunk', filter, path=dirname(chunk), env=globalenv()) {
@@ -35,3 +26,20 @@ lazyload_cached_chunk <- function(chunk='unnamed-chunk', filter, path=dirname(ch
     lazyLoad(chunk_file, envir=env, filter=filter_func)
     invisible(chunk_file)
 }
+
+#' Lazy load all chunks in a cache
+#' 
+#' @param cache Path to the cache from which all chunks are lazily loaded
+#' 
+#' @details
+#' Any existing objects in the environment will be overwritten when chunk(s) are loaded. 
+#' 
+#' @describeIn lazyload_cached_chunk Lazy load all cached chunks (alphabetically)
+#' 
+#' @export
+#' 
+load_all_chunks <- function(cache='cache')
+  list.files(cache, pattern='*RData') %>%
+    str_remove('.RData') %>%
+    plyr::l_ply(lazyload_cached_chunk, path=cache)
+

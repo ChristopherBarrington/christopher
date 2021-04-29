@@ -2,6 +2,7 @@
 % Please edit documentation in R/knitr_caches.R
 \name{lazyload_cached_chunk}
 \alias{lazyload_cached_chunk}
+\alias{load_all_chunks}
 \title{Lazy load a knitr chunk}
 \usage{
 lazyload_cached_chunk(
@@ -10,16 +11,32 @@ lazyload_cached_chunk(
   path = dirname(chunk),
   env = globalenv()
 )
+
+load_all_chunks(cache = "cache")
 }
 \arguments{
 \item{chunk}{Name of cached chunk (from Rmd). Can be a path to a chunk (partial), from which `path` will be taken,}
 
 \item{filter}{Character vector of object names to retain}
 
-\item{path}{Root path within which caches (`*rdx`) are searched}
+\item{path}{Root path within which cached (`*rdx`) are searched}
 
 \item{env}{Environment into which objects are loaded}
+
+\item{cache}{Path to the cache from which all chunks are lazily loaded}
 }
 \description{
 Lazy load a knitr chunk
+
+Lazy load all chunks in a cache
 }
+\details{
+Any existing objects in the environment will be overwritten when chunk(s) are loaded.
+}
+\section{Functions}{
+\itemize{
+\item \code{lazyload_cached_chunk}: Lazy load a cached chunk
+
+\item \code{load_all_chunks}: Lazy load all cached chunks (alphabetically)
+}}
+

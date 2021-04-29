@@ -1,20 +1,57 @@
-wideScreen <- function(howWide=get_screen_width()-1, verbose=FALSE)
-{
-    if (verbose)
-        message(sprintf("! setting width=%d", howWide))
-    options(width = as.integer(howWide))
+#' Set width of console
+#' 
+#' Uses the width of the console to define the number of characters to print on lines.
+#' 
+#' @param how_wide Number of characters
+#' @param verbose Include message of new console width
+#' 
+#' @describeIn wideScreen Set width of the console output
+#' 
+#' @export
+#' 
+wideScreen <- function(how_wide=get_screen_width()-1, verbose=FALSE) {
+  if(verbose) message(sprintf('setting width=%d', how_wide))
+  options(width=as.integer(how_wide))
 }
 
+#' 
+#' @describeIn wideScreen Get width of console
+#' 
 get_screen_width <- function()
   as.numeric(strsplit(system('stty size', intern=TRUE), ' ')[[1]])[2]
 
+#' Clear the screen
+#' 
+#' @export
+#' 
 clear <- function()
   system('clear')
 
-less <- page <- function(x, ...) {
+#' Stream output less-like
+#' 
+#' Scroll and search through long data streams like with \code{bash} \code{less}.
+#' 
+#' @export
+#' 
+less <- function(x, ...) {
   utils::page(x=x, method='p')
 }
 
+#' Open X11 on a display
+#' 
+#' Iterate through displays to find an X11 display to use.
+#' 
+#' @param display_id Starting display ID
+#' @param max_attempts Number of displays to try
+#' 
+#' @details
+#' When reconnecting a \code{tmux} session, the R session may no longer be able to open an X11 window. In such cases, the display ID may have changed between the R session opening and the \code{tmux} session reconnecting. This function iterates over the displays until one can be used or \code{max_attempts} is reached.
+#' 
+#' @return
+#' Invisibly returns the opened display ID.
+#' 
+#' @export
+#' 
 open_x11 <- function(display_id=10, max_attempts=10) {
   max_display_id <- display_id + max_attempts
   if(!is.null(dev.list())) {

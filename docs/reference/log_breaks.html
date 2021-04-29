@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get breaks for a log scale — log_breaks • christopher</title>
+<title>Get breaks for a log scale — log_breaks • helpr</title>
 
 
 <!-- jquery -->
@@ -71,8 +71,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">christopher</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <a class="navbar-link" href="../index.html">helpr</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9001</span>
       </span>
     </div>
 
@@ -142,11 +142,11 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>log_breaks</span><span class='op'>(</span>base<span class='op'>=</span><span class='fl'>10</span>, max.exp<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in major_log_breaks(base = base, max.exp = max.exp, min.exp = min.exp) %&gt;%     c(minor_log_breaks(base = base, max.exp = max.exp, min.exp = min.exp)) %&gt;%     sort(): could not find function "%&gt;%"</span></div><div class='input'>
+</div><div class='output co'>#&gt;  [1]   1   2   3   4   5   6   7   8   9  10  20  30  40  50  60  70  80  90 100</div><div class='input'>
 <span class='fu'>major_log_breaks</span><span class='op'>(</span>base<span class='op'>=</span><span class='fl'>10</span>, max.exp<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1]   1  10 100</div><div class='input'>
 <span class='fu'>minor_log_breaks</span><span class='op'>(</span>base<span class='op'>=</span><span class='fl'>10</span>, max.exp<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in major_log_breaks(base = base, max.exp = max.exp, min.exp = min.exp) %&gt;%     head(n = -1): could not find function "%&gt;%"</span></div><div class='input'>
+</div><div class='output co'>#&gt;  [1]  2  3  4  5  6  7  8  9 20 30 40 50 60 70 80 90</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

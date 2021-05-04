@@ -4,10 +4,12 @@
 \alias{resize_and_show}
 \title{Render a ggplot as a gtable}
 \usage{
-resize_and_show(x, width = height * 1.6, height = width/1.6, unit = "in")
+resize_and_show(x, size, width = height * 1.6, height = width/1.6, unit = "in")
 }
 \arguments{
 \item{x}{Either a \code{ggplot} or \code{gtable}}
+
+\item{size}{Value of both \code{width} and \code{height}, if defined}
 
 \item{width, height}{Numeric values for size of the dimensions}
 

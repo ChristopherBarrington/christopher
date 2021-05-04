@@ -42,6 +42,7 @@ remove_clipping <- function(x) {
 #' Accepts a \code{ggplot} object and converts it to a \code{gtable} before setting panel dimensions and returning (and showing) the modified \code{gtable}.
 #' 
 #' @param x Either a \code{ggplot} or \code{gtable}
+#' @param size Value of both \code{width} and \code{height}, if defined
 #' @param width,height Numeric values for size of the dimensions
 #' @param unit Character for units of \code{width} and \code{height}, passed to \code{grid::unit}
 #' 
@@ -51,8 +52,10 @@ remove_clipping <- function(x) {
 #' 
 #' @export
 #'
-resize_and_show <- function(x, width=height*1.6, height=width/1.6, unit='in') {
+resize_and_show <- function(x, size, width=height*1.6, height=width/1.6, unit='in') {
   # wrangle dimensions
+  if(!missing(size))
+    width <- height <- as.numeric(size)
   width %<>% as.numeric() %>% unit(units=unit)
   height %<>% as.numeric() %>% unit( units=unit)
 

@@ -4,7 +4,7 @@
 \alias{make_tabs_shortcode}
 \title{Make tabs shortcode}
 \usage{
-make_tabs_shortcode()
+make_tabs_shortcode(x, tabset_name = "chunk_name")
 }
 \arguments{
 \item{x}{List (of lists) from which tabs will be created}

@@ -1,5 +1,5 @@
 #' @export
-set_panel_dims <- function(ggplot=NULL, ggplot_gtable=ggplotGrob(ggplot), height, width) {
+set_panel_dims <- function(ggplot=NULL, ggplot_gtable=ggplotGrob(ggplot), height=width, width=height) {
   if(gtable::is.gtable(ggplot))
       ggplot_gtable <- ggplot
 
@@ -35,4 +35,33 @@ remove_clipping <- function(x) {
     if(!is.null(x$layout$clip))
       x$grobs[[i]]$layout$clip <- 'off'
   x
+}
+
+#' Render a ggplot as a gtable
+#' 
+#' Accepts a \code{ggplot} object and converts it to a \code{gtable} before setting panel dimensions and returning (and showing) the modified \code{gtable}.
+#' 
+#' @param x Either a \code{ggplot} or \code{gtable}
+#' @param width,height Numeric values for size of the dimensions
+#' @param unit Character for units of \code{width} and \code{height}, passed to \code{grid::unit}
+#' 
+#' @seealso grid::unit
+#' 
+#' @imports grid
+#' 
+#' @export
+#'
+resize_and_show <- function(x, width=height*1.6, height=width/1.6, unit='in') {
+  # wrangle dimensions
+  width %<>% as.numeric() %>% unit(units=unit)
+  height %<>% as.numeric() %>% unit( units=unit)
+
+  # wrangle x into a gtable
+  if(!gtable::is.gtable(x))
+    x %<>% ggplotGrob()
+
+  # resize the panel(s)
+  set_panel_dims(ggplot_gtable=x, height=height, width=width) %>%
+    remove_clipping() %>%
+    show_resized_plot()
 }

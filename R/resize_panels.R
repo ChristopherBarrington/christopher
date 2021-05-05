@@ -43,8 +43,10 @@ remove_clipping <- function(x) {
 #' 
 #' @param x Either a \code{ggplot} or \code{gtable}/\code{pheatmap}
 #' @param size Value of both \code{width} and \code{height}, if defined
-#' @param width,height Numeric values for size of the dimensions
+#' @param width,height Numeric values for size of the dimensions. Set to \code{NULL} to avoid resizing.
 #' @param unit Character for units of \code{width} and \code{height}, passed to \code{grid::unit}
+#' @param orientation Character either 'l' or 'p' for landscape or portrait aspect
+#' @param aspect Numeric for aspect ratio to apply
 #' 
 #' @seealso grid::unit
 #' 
@@ -52,16 +54,34 @@ remove_clipping <- function(x) {
 #' 
 #' @export
 #'
-resize_and_show <- function(x, size, width=height*1.6, height=width/1.6, unit='in') {
+resize_and_show <- function(x, size, width, height, unit='in', orientation=c('l','p'), aspect=1.6) {
   # wrangle dimensions
+  orientation %<>% head(n=1)
+  if(!is_in(orientation, c('l','p')))
+    stop('(resize_and_show) orientation must be one of "c" or "p"')
+
   if(missing(size) && missing(width) && missing(height))
     stop('(resize_and_show) at least one of size, height or width must be defined!', call.=FALSE)
 
+  if(is.null(width) & is.null(height))
+    stop('(resize_and_show) both width and height are NULL; no need to resize?', call.=FALSE)
+
   if(!missing(size))
     width <- height <- as.numeric(size)
+  else
+    if(!missing(width) && !is.null(width) && missing(height))
+      orientation %>%
+        when(.=='l' ~ width/aspect,
+             .=='p' ~ width*aspect) -> height
+    else if(!missing(height) && !is.null(height) && missing(width))
+      orientation %>%
+        when(.=='l' ~ height*aspect,
+             .=='p' ~ height/aspect) -> width
 
-  width %<>% as.numeric() %>% unit(units=unit)
-  height %<>% as.numeric() %>% unit( units=unit)
+  if(!is.null(width))
+    width %<>% as.numeric() %>% unit(units=unit)
+  if(!is.null(height))
+    height %<>% as.numeric() %>% unit( units=unit)
 
   # wrangle x into a gtable
   x %<>%

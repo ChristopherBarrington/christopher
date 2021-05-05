@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make tabs shortcode — make_tabs_shortcode • helpr</title>
+<title>Render a ggplot as a gtable — resize_and_show • helpr</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Make tabs shortcode — make_tabs_shortcode" />
-<meta property="og:description" content="Write a shortcode to create tabs from a (nested) list." />
+<meta property="og:title" content="Render a ggplot as a gtable — resize_and_show" />
+<meta property="og:description" content="Accepts a ggplot object and converts it to a gtable before setting panel dimensions and returning (and showing) the modified gtable." />
 
 
 
@@ -108,29 +108,57 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Make tabs shortcode</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ChristopherBarrington/helpr/blob/master/R/hugo.R'><code>R/hugo.R</code></a></small>
-    <div class="hidden name"><code>make_tabs_shortcode.Rd</code></div>
+    <h1>Render a ggplot as a gtable</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ChristopherBarrington/helpr/blob/master/R/resize_panels.R'><code>R/resize_panels.R</code></a></small>
+    <div class="hidden name"><code>resize_and_show.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Write a shortcode to create tabs from a (nested) list.</p>
+    <p>Accepts a <code>ggplot</code> object and converts it to a <code>gtable</code> before setting panel dimensions and returning (and showing) the modified <code>gtable</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>make_tabs_shortcode</span><span class='op'>(</span><span class='va'>x</span>, tabset_name <span class='op'>=</span> <span class='st'>"chunk_name"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>resize_and_show</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>size</span>,
+  <span class='va'>width</span>,
+  <span class='va'>height</span>,
+  unit <span class='op'>=</span> <span class='st'>"in"</span>,
+  orientation <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"landscape"</span>, <span class='st'>"portrait"</span><span class='op'>)</span>,
+  aspect <span class='op'>=</span> <span class='fl'>1.6</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>List (of lists) from which tabs will be created</p></td>
+      <td><p>Either a <code>ggplot</code> or <code>gtable</code>/<code>pheatmap</code></p></td>
+    </tr>
+    <tr>
+      <th>size</th>
+      <td><p>Value of both <code>width</code> and <code>height</code>, if defined</p></td>
+    </tr>
+    <tr>
+      <th>width, height</th>
+      <td><p>Numeric values for size of the dimensions. Set to <code>NULL</code> to avoid resizing.</p></td>
+    </tr>
+    <tr>
+      <th>unit</th>
+      <td><p>Character for units of <code>width</code> and <code>height</code>, passed to <code><a href='https://rdrr.io/r/grid/unit.html'>grid::unit</a></code></p></td>
+    </tr>
+    <tr>
+      <th>orientation</th>
+      <td><p>Character either 'landscape'/'l' or 'portrait'/'p'</p></td>
+    </tr>
+    <tr>
+      <th>aspect</th>
+      <td><p>Numeric for aspect ratio to apply</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>A character vector for the shortcode to include in the markdown.</p>
+    <div class='dont-index'><p>grid::unit</p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

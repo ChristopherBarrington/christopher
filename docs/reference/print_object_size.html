@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make tabs shortcode — make_tabs_shortcode • helpr</title>
+<title>Get the size of an object — print_object_size • helpr</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Make tabs shortcode — make_tabs_shortcode" />
-<meta property="og:description" content="Write a shortcode to create tabs from a (nested) list." />
+<meta property="og:title" content="Get the size of an object — print_object_size" />
+<meta property="og:description" content="Prints the size in units of an object(s)." />
 
 
 
@@ -108,29 +108,33 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Make tabs shortcode</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ChristopherBarrington/helpr/blob/master/R/hugo.R'><code>R/hugo.R</code></a></small>
-    <div class="hidden name"><code>make_tabs_shortcode.Rd</code></div>
+    <h1>Get the size of an object</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ChristopherBarrington/helpr/blob/master/R/summaries.R'><code>R/summaries.R</code></a></small>
+    <div class="hidden name"><code>print_object_size.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Write a shortcode to create tabs from a (nested) list.</p>
+    <p>Prints the size in <code>units</code> of an object(s).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>make_tabs_shortcode</span><span class='op'>(</span><span class='va'>x</span>, tabset_name <span class='op'>=</span> <span class='st'>"chunk_name"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>print_object_size</span><span class='op'>(</span><span class='va'>x</span>, unit <span class='op'>=</span> <span class='st'>"GB"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>List (of lists) from which tabs will be created</p></td>
+      <td><p>Object to check</p></td>
+    </tr>
+    <tr>
+      <th>unit</th>
+      <td><p>Units to print</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>A character vector for the shortcode to include in the markdown.</p>
+    <div class='dont-index'><p>utils:::format.object_size</p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

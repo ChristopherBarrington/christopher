@@ -4,16 +4,28 @@
 \alias{resize_and_show}
 \title{Render a ggplot as a gtable}
 \usage{
-resize_and_show(x, size, width = height * 1.6, height = width/1.6, unit = "in")
+resize_and_show(
+  x,
+  size,
+  width,
+  height,
+  unit = "in",
+  orientation = c("landscape", "portrait"),
+  aspect = 1.6
+)
 }
 \arguments{
-\item{x}{Either a \code{ggplot} or \code{gtable}}
+\item{x}{Either a \code{ggplot} or \code{gtable}/\code{pheatmap}}
 
 \item{size}{Value of both \code{width} and \code{height}, if defined}
 
-\item{width, height}{Numeric values for size of the dimensions}
+\item{width, height}{Numeric values for size of the dimensions. Set to \code{NULL} to avoid resizing.}
 
 \item{unit}{Character for units of \code{width} and \code{height}, passed to \code{grid::unit}}
+
+\item{orientation}{Character either 'landscape'/'l' or 'portrait'/'p'}
+
+\item{aspect}{Numeric for aspect ratio to apply}
 }
 \description{
 Accepts a \code{ggplot} object and converts it to a \code{gtable} before setting panel dimensions and returning (and showing) the modified \code{gtable}.

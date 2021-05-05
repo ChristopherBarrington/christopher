@@ -40,7 +40,9 @@
 
 
 <meta property="og:title" content="Print a grid object — show_resized_plot" />
-<meta property="og:description" content="Print a grid object" />
+<meta property="og:description" content="Print a grid object
+Define the dimensions of a gtable panel
+Prevent clipping in grid objects" />
 
 
 
@@ -115,19 +117,50 @@
 
     <div class="ref-description">
     <p>Print a <code>grid</code> object</p>
+<p>Define the dimensions of a <code>gtable</code> panel</p>
+<p>Prevent clipping in <code>grid</code> objects</p>
     </div>
 
-    <pre class="usage"><span class='fu'>show_resized_plot</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>show_resized_plot</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='fu'>set_panel_dims</span><span class='op'>(</span>
+  ggplot <span class='op'>=</span> <span class='cn'>NULL</span>,
+  ggplot_gtable <span class='op'>=</span> <span class='fu'>ggplotGrob</span><span class='op'>(</span><span class='va'>ggplot</span><span class='op'>)</span>,
+  height <span class='op'>=</span> <span class='va'>width</span>,
+  width <span class='op'>=</span> <span class='va'>height</span>
+<span class='op'>)</span>
+
+<span class='fu'>remove_clipping</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>Object to display on a new page</p></td>
+      <td><p>Grid object</p></td>
+    </tr>
+    <tr>
+      <th>ggplot</th>
+      <td><p>Input <code>ggplot</code> object</p></td>
+    </tr>
+    <tr>
+      <th>ggplot_gtable</th>
+      <td><p>Input <code>gtable</code> object</p></td>
+    </tr>
+    <tr>
+      <th>height, width</th>
+      <td><p>Dimensions in <code><a href='https://rdrr.io/r/grid/unit.html'>grid::unit()</a></code></p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    
+<ul>
+<li><p><code>show_resized_plot</code>: Display <code>grid</code> object on new page</p></li>
+<li><p><code>set_panel_dims</code>: Alter dimensions of plot area</p></li>
+<li><p><code>remove_clipping</code>: Turn clipping off for all grobs in a <code>grid</code> object</p></li>
+</ul>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

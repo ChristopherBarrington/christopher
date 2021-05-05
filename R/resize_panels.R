@@ -1,54 +1,4 @@
-#' Define the dimensions of a `gtable` panel
-#' 
-#' @param ggplot Input `ggplot` object
-#' @param ggplot_gtable Input `gtable` object
-#' @param height,width Dimensions in [grid::unit()]
-#' 
-set_panel_dims <- function(ggplot=NULL, ggplot_gtable=ggplotGrob(ggplot), height=width, width=height) {
-  if(gtable::is.gtable(ggplot))
-      ggplot_gtable <- ggplot
-
-  panels <- grep('panel', ggplot_gtable$layout$name)
-  panel_index_w <- unique(ggplot_gtable$layout$l[panels])
-  panel_index_h <- unique(ggplot_gtable$layout$t[panels])
-
-  width_ratios <- ggplot_gtable$widths[panel_index_w] %>% as.numeric() %>% (function(x) x/max(x))
-  height_ratios <- ggplot_gtable$heights[panel_index_h] %>% as.numeric() %>% (function(x) x/max(x))
-
-  if (getRversion() < '3.3.0')
-      stop('[set_panel_dims] R 3.3.0 is required!')
-
-  if (!is.null(width))
-      ggplot_gtable$widths[panel_index_w] <- width_ratios * width
-
-  if (!is.null(height))
-      ggplot_gtable$heights[panel_index_h] <- height_ratios * height
-
-  invisible(ggplot_gtable)
-}
-
-#' Print a `grid` object
-#' 
-#' @param x Object to display on a new page
-#' 
-show_resized_plot <- function(x) {
-  grid::grid.newpage()
-  grid::grid.draw(x=x)
-}
-
-#' Prevent clipping in `grid` objects
-#' 
-#' @param x Grid object
-#' 
-remove_clipping <- function(x) {
-  x$layout$clip <- 'off'
-  for(i in seq(x$grobs))
-    if(!is.null(x$layout$clip))
-      x$grobs[[i]]$layout$clip <- 'off'
-  x
-}
-
-#' Render a `ggplot` as a `gtable`
+#' Resize and display a `ggplot` object
 #' 
 #' Accepts a `ggplot` object and converts it to a `gtable` before setting panel dimensions and returning (and showing) the modified `gtable`.
 #' 
@@ -59,6 +9,7 @@ remove_clipping <- function(x) {
 #' @param orientation Character either 'landscape'/'l' or 'portrait'/'p'
 #' @param aspect Numeric for aspect ratio to apply
 #' 
+#' @describeIn resize_and_show Display and resize a `grid` object on new page
 #' @seealso [grid::unit()]
 #' 
 #' @imports grid
@@ -106,3 +57,60 @@ resize_and_show <- function(x, size, width, height, unit='in', orientation=c('la
     remove_clipping() %>%
     show_resized_plot()
 }
+
+#' Define the dimensions of a `gtable` panel
+#' 
+#' @param ggplot Input `ggplot` object
+#' @param ggplot_gtable Input `gtable` object
+#' @param height,width Dimensions in [grid::unit()]
+#' 
+#' @describeIn resize_and_show Alter dimensions of plot area
+#' 
+set_panel_dims <- function(ggplot=NULL, ggplot_gtable=ggplotGrob(ggplot), height=width, width=height) {
+  if(gtable::is.gtable(ggplot))
+      ggplot_gtable <- ggplot
+
+  panels <- grep('panel', ggplot_gtable$layout$name)
+  panel_index_w <- unique(ggplot_gtable$layout$l[panels])
+  panel_index_h <- unique(ggplot_gtable$layout$t[panels])
+
+  width_ratios <- ggplot_gtable$widths[panel_index_w] %>% as.numeric() %>% (function(x) x/max(x))
+  height_ratios <- ggplot_gtable$heights[panel_index_h] %>% as.numeric() %>% (function(x) x/max(x))
+
+  if (getRversion() < '3.3.0')
+      stop('[set_panel_dims] R 3.3.0 is required!')
+
+  if (!is.null(width))
+      ggplot_gtable$widths[panel_index_w] <- width_ratios * width
+
+  if (!is.null(height))
+      ggplot_gtable$heights[panel_index_h] <- height_ratios * height
+
+  invisible(ggplot_gtable)
+}
+
+#' Prevent clipping in `grid` objects
+#' 
+#' @param x `grid` object
+#' 
+#' @describeIn resize_and_show Turn clipping off for all grobs in a `grid` object
+#' 
+remove_clipping <- function(x) {
+  x$layout$clip <- 'off'
+  for(i in seq(x$grobs))
+    if(!is.null(x$layout$clip))
+      x$grobs[[i]]$layout$clip <- 'off'
+  x
+}
+
+#' Display a `grid` object
+#' 
+#' @param x `grid` object
+#' 
+#' @describeIn resize_and_show Display `grid` object on new page
+#' 
+show_resized_plot <- function(x) {
+  grid::grid.newpage()
+  grid::grid.draw(x=x)
+}
+

@@ -2,7 +2,10 @@
 % Please edit documentation in R/resize_panels.R
 \name{resize_and_show}
 \alias{resize_and_show}
-\title{Render a \code{ggplot} as a \code{gtable}}
+\alias{set_panel_dims}
+\alias{remove_clipping}
+\alias{show_resized_plot}
+\title{Resize and display a \code{ggplot} object}
 \usage{
 resize_and_show(
   x,
@@ -13,23 +16,51 @@ resize_and_show(
   orientation = c("landscape", "portrait"),
   aspect = 1.6
 )
+
+set_panel_dims(
+  ggplot = NULL,
+  ggplot_gtable = ggplotGrob(ggplot),
+  height = width,
+  width = height
+)
+
+remove_clipping(x)
+
+show_resized_plot(x)
 }
 \arguments{
-\item{x}{Either a \code{ggplot} or \code{gtable}/\code{pheatmap}}
+\item{x}{\code{grid} object}
 
 \item{size}{Value of both \code{width} and \code{height}, if defined}
 
 \item{width, height}{Numeric values for size of the dimensions. Set to \code{NULL} to avoid resizing.}
+
+\item{height, width}{Dimensions in \code{\link[grid:unit]{grid::unit()}}}
 
 \item{unit}{Character for units of \code{width} and \code{height}, passed to \code{\link[grid:unit]{grid::unit()}}}
 
 \item{orientation}{Character either 'landscape'/'l' or 'portrait'/'p'}
 
 \item{aspect}{Numeric for aspect ratio to apply}
+
+\item{ggplot}{Input \code{ggplot} object}
+
+\item{ggplot_gtable}{Input \code{gtable} object}
 }
 \description{
 Accepts a \code{ggplot} object and converts it to a \code{gtable} before setting panel dimensions and returning (and showing) the modified \code{gtable}.
 }
+\section{Functions}{
+\itemize{
+\item \code{resize_and_show}: Display and resize a \code{grid} object on new page
+
+\item \code{set_panel_dims}: Alter dimensions of plot area
+
+\item \code{remove_clipping}: Turn clipping off for all grobs in a \code{grid} object
+
+\item \code{show_resized_plot}: Display \code{grid} object on new page
+}}
+
 \seealso{
 \code{\link[grid:unit]{grid::unit()}}
 }

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Render a ggplot as a gtable — resize_and_show • helpr</title>
+<title>Resize and display a ggplot object — resize_and_show • helpr</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Render a ggplot as a gtable — resize_and_show" />
+<meta property="og:title" content="Resize and display a ggplot object — resize_and_show" />
 <meta property="og:description" content="Accepts a ggplot object and converts it to a gtable before setting panel dimensions and returning (and showing) the modified gtable." />
 
 
@@ -108,7 +108,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Render a <code>ggplot</code> as a <code>gtable</code></h1>
+    <h1>Resize and display a <code>ggplot</code> object</h1>
     <small class="dont-index">Source: <a href='https://github.com/ChristopherBarrington/helpr/blob/master/R/resize_panels.R'><code>R/resize_panels.R</code></a></small>
     <div class="hidden name"><code>resize_and_show.Rd</code></div>
     </div>
@@ -125,14 +125,25 @@
   unit <span class='op'>=</span> <span class='st'>"in"</span>,
   orientation <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"landscape"</span>, <span class='st'>"portrait"</span><span class='op'>)</span>,
   aspect <span class='op'>=</span> <span class='fl'>1.6</span>
-<span class='op'>)</span></pre>
+<span class='op'>)</span>
+
+<span class='fu'>set_panel_dims</span><span class='op'>(</span>
+  ggplot <span class='op'>=</span> <span class='cn'>NULL</span>,
+  ggplot_gtable <span class='op'>=</span> <span class='fu'>ggplotGrob</span><span class='op'>(</span><span class='va'>ggplot</span><span class='op'>)</span>,
+  height <span class='op'>=</span> <span class='va'>width</span>,
+  width <span class='op'>=</span> <span class='va'>height</span>
+<span class='op'>)</span>
+
+<span class='fu'>remove_clipping</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='fu'>show_resized_plot</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>Either a <code>ggplot</code> or <code>gtable</code>/<code>pheatmap</code></p></td>
+      <td><p><code>grid</code> object</p></td>
     </tr>
     <tr>
       <th>size</th>
@@ -141,6 +152,10 @@
     <tr>
       <th>width, height</th>
       <td><p>Numeric values for size of the dimensions. Set to <code>NULL</code> to avoid resizing.</p></td>
+    </tr>
+    <tr>
+      <th>height, width</th>
+      <td><p>Dimensions in <code><a href='https://rdrr.io/r/grid/unit.html'>grid::unit()</a></code></p></td>
     </tr>
     <tr>
       <th>unit</th>
@@ -154,8 +169,25 @@
       <th>aspect</th>
       <td><p>Numeric for aspect ratio to apply</p></td>
     </tr>
+    <tr>
+      <th>ggplot</th>
+      <td><p>Input <code>ggplot</code> object</p></td>
+    </tr>
+    <tr>
+      <th>ggplot_gtable</th>
+      <td><p>Input <code>gtable</code> object</p></td>
+    </tr>
     </table>
 
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    
+<ul>
+<li><p><code>resize_and_show</code>: Display and resize a <code>grid</code> object on new page</p></li>
+<li><p><code>set_panel_dims</code>: Alter dimensions of plot area</p></li>
+<li><p><code>remove_clipping</code>: Turn clipping off for all grobs in a <code>grid</code> object</p></li>
+<li><p><code>show_resized_plot</code>: Display <code>grid</code> object on new page</p></li>
+</ul>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/grid/unit.html'>grid::unit()</a></code></p></div>

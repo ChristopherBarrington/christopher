@@ -1,4 +1,9 @@
-#' @export
+#' Define the dimensions of a `gtable` panel
+#' 
+#' @param ggplot Input `ggplot` object
+#' @param ggplot_gtable Input `gtable` object
+#' @param height,width Dimensions in [grid::unit()]
+#' 
 set_panel_dims <- function(ggplot=NULL, ggplot_gtable=ggplotGrob(ggplot), height=width, width=height) {
   if(gtable::is.gtable(ggplot))
       ggplot_gtable <- ggplot
@@ -22,13 +27,19 @@ set_panel_dims <- function(ggplot=NULL, ggplot_gtable=ggplotGrob(ggplot), height
   invisible(ggplot_gtable)
 }
 
-#' @export
+#' Print a `grid` object
+#' 
+#' @param x Object to display on a new page
+#' 
 show_resized_plot <- function(x) {
   grid::grid.newpage()
   grid::grid.draw(x=x)
 }
 
-#' @export
+#' Prevent clipping in `grid` objects
+#' 
+#' @param x Grid object
+#' 
 remove_clipping <- function(x) {
   x$layout$clip <- 'off'
   for(i in seq(x$grobs))
@@ -37,18 +48,18 @@ remove_clipping <- function(x) {
   x
 }
 
-#' Render a ggplot as a gtable
+#' Render a `ggplot` as a `gtable`
 #' 
-#' Accepts a \code{ggplot} object and converts it to a \code{gtable} before setting panel dimensions and returning (and showing) the modified \code{gtable}.
+#' Accepts a `ggplot` object and converts it to a `gtable` before setting panel dimensions and returning (and showing) the modified `gtable`.
 #' 
-#' @param x Either a \code{ggplot} or \code{gtable}/\code{pheatmap}
-#' @param size Value of both \code{width} and \code{height}, if defined
-#' @param width,height Numeric values for size of the dimensions. Set to \code{NULL} to avoid resizing.
-#' @param unit Character for units of \code{width} and \code{height}, passed to \code{grid::unit}
+#' @param x Either a `ggplot` or `gtable`/`pheatmap`
+#' @param size Value of both `width` and `height`, if defined
+#' @param width,height Numeric values for size of the dimensions. Set to `NULL` to avoid resizing.
+#' @param unit Character for units of `width` and `height`, passed to [grid::unit()]
 #' @param orientation Character either 'landscape'/'l' or 'portrait'/'p'
 #' @param aspect Numeric for aspect ratio to apply
 #' 
-#' @seealso grid::unit
+#' @seealso [grid::unit()]
 #' 
 #' @imports grid
 #' 

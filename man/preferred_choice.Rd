@@ -13,7 +13,7 @@ preferred_choice(x, preferences, default = 1, missing = NA)
 
 \item{default}{Element of \code{x} if none of \code{preferences} are names of \code{x}}
 
-\item{missing}{Value returned instead of \code{x[default]}, when `default=0` or none of \code{preferences} or \code{default} exist in \code{names(x)}}
+\item{missing}{Value returned instead of \code{x[default]}, when \code{default=0} or none of \code{preferences} or \code{default} exist in \code{names(x)}}
 }
 \description{
 Select a vector element using a ranked set of preferences.

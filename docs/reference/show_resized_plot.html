@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lazy load a knitr chunk — lazyload_cached_chunk • helpr</title>
+<title>Print a grid object — show_resized_plot • helpr</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="Lazy load a knitr chunk — lazyload_cached_chunk" />
-<meta property="og:description" content="Lazy load a knitr chunk
-Lazy load all chunks in a cache" />
+<meta property="og:title" content="Print a grid object — show_resized_plot" />
+<meta property="og:description" content="Print a grid object" />
 
 
 
@@ -109,60 +108,26 @@ Lazy load all chunks in a cache" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Lazy load a knitr chunk</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ChristopherBarrington/helpr/blob/master/R/knitr_caches.R'><code>R/knitr_caches.R</code></a></small>
-    <div class="hidden name"><code>lazyload_cached_chunk.Rd</code></div>
+    <h1>Print a <code>grid</code> object</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ChristopherBarrington/helpr/blob/master/R/resize_panels.R'><code>R/resize_panels.R</code></a></small>
+    <div class="hidden name"><code>show_resized_plot.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Lazy load a knitr chunk</p>
-<p>Lazy load all chunks in a cache</p>
+    <p>Print a <code>grid</code> object</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lazyload_cached_chunk</span><span class='op'>(</span>
-  chunk <span class='op'>=</span> <span class='st'>"unnamed-chunk"</span>,
-  <span class='va'>filter</span>,
-  path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/basename.html'>dirname</a></span><span class='op'>(</span><span class='va'>chunk</span><span class='op'>)</span>,
-  env <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>globalenv</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='op'>)</span>
-
-<span class='fu'>load_all_chunks</span><span class='op'>(</span>cache <span class='op'>=</span> <span class='st'>"cache"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>show_resized_plot</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>chunk</th>
-      <td><p>Name of cached chunk (from Rmd). Can be a path to a chunk (partial), from which <code>path</code> will be taken,</p></td>
-    </tr>
-    <tr>
-      <th>filter</th>
-      <td><p>Character vector of object names to retain</p></td>
-    </tr>
-    <tr>
-      <th>path</th>
-      <td><p>Root path within which cached (<code>*rdx</code>) are searched</p></td>
-    </tr>
-    <tr>
-      <th>env</th>
-      <td><p>Environment into which objects are loaded</p></td>
-    </tr>
-    <tr>
-      <th>cache</th>
-      <td><p>Path to the cache from which all chunks are lazily loaded</p></td>
+      <th>x</th>
+      <td><p>Object to display on a new page</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>Any existing objects in the environment will be overwritten when chunk(s) are loaded.</p>
-    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
-
-    
-<ul>
-<li><p><code>lazyload_cached_chunk</code>: Lazy load a cached chunk</p></li>
-<li><p><code>load_all_chunks</code>: Lazy load all cached chunks (alphabetically)</p></li>
-</ul>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

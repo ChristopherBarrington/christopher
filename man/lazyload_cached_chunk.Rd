@@ -15,11 +15,11 @@ lazyload_cached_chunk(
 load_all_chunks(cache = "cache")
 }
 \arguments{
-\item{chunk}{Name of cached chunk (from Rmd). Can be a path to a chunk (partial), from which `path` will be taken,}
+\item{chunk}{Name of cached chunk (from Rmd). Can be a path to a chunk (partial), from which \code{path} will be taken,}
 
 \item{filter}{Character vector of object names to retain}
 
-\item{path}{Root path within which cached (`*rdx`) are searched}
+\item{path}{Root path within which cached (\verb{*rdx}) are searched}
 
 \item{env}{Environment into which objects are loaded}
 

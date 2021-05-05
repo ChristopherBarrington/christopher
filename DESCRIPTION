@@ -12,6 +12,7 @@ Description: Provides functions to do all kinds of generic and repetitive tasks:
 License: What license it uses
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown=TRUE)
 RoxygenNote: 7.0.2
 Depends:
   magrittr,

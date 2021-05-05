@@ -2,7 +2,7 @@
 % Please edit documentation in R/resize_panels.R
 \name{resize_and_show}
 \alias{resize_and_show}
-\title{Render a ggplot as a gtable}
+\title{Render a \code{ggplot} as a \code{gtable}}
 \usage{
 resize_and_show(
   x,
@@ -21,7 +21,7 @@ resize_and_show(
 
 \item{width, height}{Numeric values for size of the dimensions. Set to \code{NULL} to avoid resizing.}
 
-\item{unit}{Character for units of \code{width} and \code{height}, passed to \code{grid::unit}}
+\item{unit}{Character for units of \code{width} and \code{height}, passed to \code{\link[grid:unit]{grid::unit()}}}
 
 \item{orientation}{Character either 'landscape'/'l' or 'portrait'/'p'}
 
@@ -31,5 +31,5 @@ resize_and_show(
 Accepts a \code{ggplot} object and converts it to a \code{gtable} before setting panel dimensions and returning (and showing) the modified \code{gtable}.
 }
 \seealso{
-grid::unit
+\code{\link[grid:unit]{grid::unit()}}
 }

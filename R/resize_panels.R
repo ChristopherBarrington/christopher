@@ -45,7 +45,7 @@ remove_clipping <- function(x) {
 #' @param size Value of both \code{width} and \code{height}, if defined
 #' @param width,height Numeric values for size of the dimensions. Set to \code{NULL} to avoid resizing.
 #' @param unit Character for units of \code{width} and \code{height}, passed to \code{grid::unit}
-#' @param orientation Character either 'l' or 'p' for landscape or portrait aspect
+#' @param orientation Character either 'landscape'/'l' or 'portrait'/'p'
 #' @param aspect Numeric for aspect ratio to apply
 #' 
 #' @seealso grid::unit
@@ -54,16 +54,16 @@ remove_clipping <- function(x) {
 #' 
 #' @export
 #'
-resize_and_show <- function(x, size, width, height, unit='in', orientation=c('l','p'), aspect=1.6) {
+resize_and_show <- function(x, size, width, height, unit='in', orientation=c('landscape','portrait'), aspect=1.6) {
   # wrangle dimensions
-  orientation %<>% head(n=1)
+  orientation %<>% head(n=1) %>% str_extract('^.')
   if(!is_in(orientation, c('l','p')))
     stop('(resize_and_show) orientation must be one of "c" or "p"')
 
   if(missing(size) && missing(width) && missing(height))
     stop('(resize_and_show) at least one of size, height or width must be defined!', call.=FALSE)
 
-  if(is.null(width) & is.null(height))
+  if(!missing(width) & !missing(height) && is.null(width) && is.null(height))
     stop('(resize_and_show) both width and height are NULL; no need to resize?', call.=FALSE)
 
   if(!missing(size))

@@ -17,4 +17,3 @@ devtools::install_github('ChristopherBarrington/helpr', ref='main', dependencies
                | |         
                |_|         
 ```
-

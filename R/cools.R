@@ -18,9 +18,11 @@
 #' @export
 #' 
 get_cool_interaction_matrix <- function(cool, mcool, resolution) {
-  uri <- cool
+
   if(!missing(mcool) & !missing(resolution))
     uri <- sprintf(fmt='%s::resolutions/%s', mcool, resolution)
+  else
+    uri <- cool
 
   h5read(file=uri, name='bins') %>%
     as.data.frame() %>%
@@ -67,3 +69,15 @@ get_cool_interaction_submatrix <- function(chrom1, pos1, range1, chrom2=chrom1, 
     filter(chrom2==filter_chrom2 & start2>=filter_start2 & end2<=filter_end2)
 }
 
+#' Get the available resolutions of an mcool
+#' 
+#' @param mcool Path to the mcool
+#' 
+#' @export
+#' 
+list_mcool_resolutions <- function(mcool) {
+  rhdf5::h5ls(file=mcool, recursive=2) %>%
+    filter(group=='/resolutions') %>%
+    pluck('name') %>%
+    gtools::mixedsort()
+}

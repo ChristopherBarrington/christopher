@@ -19,16 +19,25 @@
 #' 
 get_cool_interaction_matrix <- function(cool, mcool, resolution) {
 
-  if(!missing(mcool) & !missing(resolution))
-    uri <- sprintf(fmt='%s::/resolutions/%s', mcool, resolution)
-  else
-    uri <- cool
+  # decide which type of cool is specified
+  if(!missing(cool)) {
+    get_h5_name <- function(n, r) n
+    h5_file <- cool
+    stop('(get_cool_interaction_matrix) need to make it work for cools!')
+  } else if(!missing(mcool) & !missing(resolution)) {
+    get_h5_name <- function(n, r) sprintf(fmt='/resolutions/%s/%s', r, n)
+    h5_file <- mcool
+  } else{
+    stop('(get_cool_interaction_matrix) either cool or mcool and resolution is required!')
+  }
 
-  h5read(file=uri, name='bins') %>%
+  # read the bins:coordinates table
+  h5read(file=h5_file, name=get_h5_name(n='bins', r=resolution)) %>%
     as.data.frame() %>%
     mutate(bin=seq(n())-1) -> bins
 
-  h5read(file=uri, name='pixels') %>%
+  # read the binned values
+  h5read(file=h5_file, name=get_h5_name(n='pixels', r=resolution)) %>%
     as.data.frame() %>%
     left_join(y=bins, by=c(bin1_id='bin')) %>%
     left_join(y=bins, by=c(bin2_id='bin'), suffix=c('1','2')) %>%
@@ -73,11 +82,14 @@ get_cool_interaction_submatrix <- function(chrom1, pos1, range1, chrom2=chrom1, 
 #' 
 #' @param mcool Path to the mcool
 #' 
+#' @import rhdf5
+#' @import gtools
+#' 
 #' @export
 #' 
 list_mcool_resolutions <- function(mcool) {
-  rhdf5::h5ls(file=mcool, recursive=2) %>%
+  h5ls(file=mcool, recursive=2) %>%
     filter(group=='/resolutions') %>%
     pluck('name') %>%
-    gtools::mixedsort()
+    mixedsort()
 }

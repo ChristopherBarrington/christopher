@@ -20,7 +20,7 @@
 get_cool_interaction_matrix <- function(cool, mcool, resolution) {
 
   if(!missing(mcool) & !missing(resolution))
-    uri <- sprintf(fmt='%s::resolutions/%s', mcool, resolution)
+    uri <- sprintf(fmt='%s::/resolutions/%s', mcool, resolution)
   else
     uri <- cool
 

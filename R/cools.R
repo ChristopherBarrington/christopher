@@ -73,8 +73,8 @@ get_cool_interaction_submatrix <- function(chrom1, pos1, range1, chrom2=chrom1, 
   filter_end1 <- floor_pos1 %>% add(range1) %>% add(resolution)
   filter_end2 <- floor_pos2 %>% add(range2) %>% add(resolution)
 
-  get_matrix(mcool=mcool, resolution=resolution) %>%
-    filter(chrom==filter_chrom1 & start>=filter_start1 & end<=filter_end1) %>%
+  get_cool_interaction_matrix(mcool=mcool, resolution=resolution) %>%
+    filter(chrom1==filter_chrom1 & start1>=filter_start1 & end1<=filter_end1) %>%
     filter(chrom2==filter_chrom2 & start2>=filter_start2 & end2<=filter_end2)
 }
 

@@ -4,10 +4,11 @@
 #' 
 #' @param x Either a `ggplot` or `gtable`/`pheatmap`
 #' @param size Value of both `width` and `height`, if defined
-#' @param width,height Numeric values for size of the dimensions. Set to `NULL` to avoid resizing.
+#' @param height,width Numeric values for size of the dimensions. Set to `NULL` to avoid resizing.
 #' @param unit Character for units of `width` and `height`, passed to [grid::unit()]
 #' @param orientation Character either 'landscape'/'l' or 'portrait'/'p'
 #' @param aspect Numeric for aspect ratio to apply
+#' @param clip Should clipping be on or off? Set to TRUE or FALSE.
 #' 
 #' @describeIn resize_and_show Display and resize a `grid` object on new page
 #' @seealso [grid::unit()]
@@ -16,7 +17,7 @@
 #' 
 #' @export
 #'
-resize_and_show <- function(x, size, width, height, unit='in', orientation=c('landscape','portrait'), aspect=1.6) {
+resize_and_show <- function(x, size, width, height, unit='in', orientation=c('landscape','portrait'), aspect=1.6, clip=TRUE) {
   # wrangle dimensions
   orientation %<>% head(n=1) %>% str_extract('^.')
   if(!is_in(orientation, c('l','p')))
@@ -54,7 +55,7 @@ resize_and_show <- function(x, size, width, height, unit='in', orientation=c('la
 
   # resize the panel(s)
   set_panel_dims(ggplot_gtable=x, height=height, width=width) %>%
-    remove_clipping() %>%
+    remove_clipping(clip=clip) %>%
     show_resized_plot()
 }
 
@@ -62,7 +63,7 @@ resize_and_show <- function(x, size, width, height, unit='in', orientation=c('la
 #' 
 #' @param ggplot Input `ggplot` object
 #' @param ggplot_gtable Input `gtable` object
-#' @param height,width Dimensions in [grid::unit()]
+#' @param height,width For set_panel_dims: Dimensions in [grid::unit()]
 #' 
 #' @describeIn resize_and_show Alter dimensions of plot area
 #' 
@@ -92,10 +93,14 @@ set_panel_dims <- function(ggplot=NULL, ggplot_gtable=ggplotGrob(ggplot), height
 #' Prevent clipping in `grid` objects
 #' 
 #' @param x `grid` object
+#' @param clip Should clipping be on or off? Set to TRUE or FALSE.
 #' 
 #' @describeIn resize_and_show Turn clipping off for all grobs in a `grid` object
 #' 
-remove_clipping <- function(x) {
+remove_clipping <- function(x, clip=TRUE) {
+  if(!clip)
+    return(x)
+
   x$layout$clip <- 'off'
   for(i in seq(x$grobs))
     if(!is.null(x$layout$clip))

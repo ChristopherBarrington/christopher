@@ -14,7 +14,8 @@ resize_and_show(
   height,
   unit = "in",
   orientation = c("landscape", "portrait"),
-  aspect = 1.6
+  aspect = 1.6,
+  clip = TRUE
 )
 
 set_panel_dims(
@@ -24,7 +25,7 @@ set_panel_dims(
   width = height
 )
 
-remove_clipping(x)
+remove_clipping(x, clip = TRUE)
 
 show_resized_plot(x)
 }
@@ -33,15 +34,15 @@ show_resized_plot(x)
 
 \item{size}{Value of both \code{width} and \code{height}, if defined}
 
-\item{width, height}{Numeric values for size of the dimensions. Set to \code{NULL} to avoid resizing.}
-
-\item{height, width}{Dimensions in \code{\link[grid:unit]{grid::unit()}}}
+\item{height, width}{For set_panel_dims: Dimensions in \code{\link[grid:unit]{grid::unit()}}}
 
 \item{unit}{Character for units of \code{width} and \code{height}, passed to \code{\link[grid:unit]{grid::unit()}}}
 
 \item{orientation}{Character either 'landscape'/'l' or 'portrait'/'p'}
 
 \item{aspect}{Numeric for aspect ratio to apply}
+
+\item{clip}{Should clipping be on or off? Set to TRUE or FALSE.}
 
 \item{ggplot}{Input \code{ggplot} object}
 

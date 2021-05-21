@@ -17,7 +17,7 @@
 #' 
 #' @export
 #'
-resize_and_show <- function(x, size, width, height, unit='in', orientation=c('landscape','portrait'), aspect=1.6, clip=FALSE) {
+resize_and_show <- function(x, size, width, height, unit='in', orientation=c('landscape','portrait'), aspect=1.6, clip=TRUE) {
   # wrangle dimensions
   orientation %<>% head(n=1) %>% str_extract('^.')
   if(!is_in(orientation, c('l','p')))
@@ -97,7 +97,7 @@ set_panel_dims <- function(ggplot=NULL, ggplot_gtable=ggplotGrob(ggplot), height
 #' 
 #' @describeIn resize_and_show Turn clipping off for all grobs in a `grid` object
 #' 
-set_plot_clipping <- function(x, clip=FALSE) {
+set_plot_clipping <- function(x, clip=TRUE) {
   clip %<>% if_else('on', 'off')
 
   x$layout$clip <- clip

@@ -93,12 +93,12 @@ set_panel_dims <- function(ggplot=NULL, ggplot_gtable=ggplotGrob(ggplot), height
 #' Prevent clipping in `grid` objects
 #' 
 #' @param x `grid` object
-#' @param clip Should clipping be on or off? Set to TRUE or FALSE.
+#' @param clip Should clipping be on or off? Set to TRUE or FALSE. Default is FALSE: turn clipping off.
 #' 
 #' @describeIn resize_and_show Turn clipping off for all grobs in a `grid` object
 #' 
-remove_clipping <- function(x, clip=TRUE) {
-  if(!clip)
+remove_clipping <- function(x, clip=FALSE) {
+  if(clip)
     return(x)
 
   x$layout$clip <- 'off'

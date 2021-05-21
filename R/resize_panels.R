@@ -8,7 +8,7 @@
 #' @param unit Character for units of `width` and `height`, passed to [grid::unit()]
 #' @param orientation Character either 'landscape'/'l' or 'portrait'/'p'
 #' @param aspect Numeric for aspect ratio to apply
-#' @param clip Should clipping be on or off? Set to TRUE or FALSE.
+#' @param clip Should clipping be on or off? Set to TRUE or FALSE. Default is FALSE: turn clipping off.
 #' 
 #' @describeIn resize_and_show Display and resize a `grid` object on new page
 #' @seealso [grid::unit()]
@@ -17,7 +17,7 @@
 #' 
 #' @export
 #'
-resize_and_show <- function(x, size, width, height, unit='in', orientation=c('landscape','portrait'), aspect=1.6, clip=TRUE) {
+resize_and_show <- function(x, size, width, height, unit='in', orientation=c('landscape','portrait'), aspect=1.6, clip=FALSE) {
   # wrangle dimensions
   orientation %<>% head(n=1) %>% str_extract('^.')
   if(!is_in(orientation, c('l','p')))
@@ -44,7 +44,7 @@ resize_and_show <- function(x, size, width, height, unit='in', orientation=c('la
   if(!is.null(width))
     width %<>% as.numeric() %>% unit(units=unit)
   if(!is.null(height))
-    height %<>% as.numeric() %>% unit( units=unit)
+    height %<>% as.numeric() %>% unit(units=unit)
 
   # wrangle x into a gtable
   x %<>%
@@ -55,7 +55,7 @@ resize_and_show <- function(x, size, width, height, unit='in', orientation=c('la
 
   # resize the panel(s)
   set_panel_dims(ggplot_gtable=x, height=height, width=width) %>%
-    remove_clipping(clip=clip) %>%
+    set_plot_clipping(clip=clip) %>%
     show_resized_plot()
 }
 
@@ -97,14 +97,13 @@ set_panel_dims <- function(ggplot=NULL, ggplot_gtable=ggplotGrob(ggplot), height
 #' 
 #' @describeIn resize_and_show Turn clipping off for all grobs in a `grid` object
 #' 
-remove_clipping <- function(x, clip=FALSE) {
-  if(clip)
-    return(x)
+set_plot_clipping <- function(x, clip=FALSE) {
+  clip %<>% if_else('on', 'off')
 
-  x$layout$clip <- 'off'
+  x$layout$clip <- clip
   for(i in seq(x$grobs))
     if(!is.null(x$layout$clip))
-      x$grobs[[i]]$layout$clip <- 'off'
+      x$grobs[[i]]$layout$clip <- clip
   x
 }
 

@@ -3,7 +3,7 @@
 \name{resize_and_show}
 \alias{resize_and_show}
 \alias{set_panel_dims}
-\alias{remove_clipping}
+\alias{set_plot_clipping}
 \alias{show_resized_plot}
 \title{Resize and display a \code{ggplot} object}
 \usage{
@@ -25,7 +25,7 @@ set_panel_dims(
   width = height
 )
 
-remove_clipping(x, clip = TRUE)
+set_plot_clipping(x, clip = TRUE)
 
 show_resized_plot(x)
 }
@@ -42,7 +42,7 @@ show_resized_plot(x)
 
 \item{aspect}{Numeric for aspect ratio to apply}
 
-\item{clip}{Should clipping be on or off? Set to TRUE or FALSE.}
+\item{clip}{Should clipping be on or off? Set to TRUE or FALSE. Default is FALSE: turn clipping off.}
 
 \item{ggplot}{Input \code{ggplot} object}
 
@@ -57,7 +57,7 @@ Accepts a \code{ggplot} object and converts it to a \code{gtable} before setting
 
 \item \code{set_panel_dims}: Alter dimensions of plot area
 
-\item \code{remove_clipping}: Turn clipping off for all grobs in a \code{grid} object
+\item \code{set_plot_clipping}: Turn clipping off for all grobs in a \code{grid} object
 
 \item \code{show_resized_plot}: Display \code{grid} object on new page
 }}

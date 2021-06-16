@@ -64,7 +64,7 @@ get_ensembl_url <- function(ensembl_gene_id, mart) {
   if(missing(ensembl_gene_id))
     stop('!!! get_ensembl_url must have an ensembl_gene_id')
 
-  if(missing(mart) {
+  if(missing(mart)) {
     url_parse(url='https://www.ensembl.org/') %>%
       mutate(port=NA,
              path='Multi/Search/Results',

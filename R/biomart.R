@@ -41,3 +41,50 @@ get_mart <- function(species='mmusculus', release=95, dataset='gene_ensembl', ..
 
   mart
 }
+
+#' Format a URL to Ensembl
+#' 
+#' Uses `mart` object to produce a URL to a specific feature in Ensembl.
+#' 
+#' @param ensembl_gene_id Ensembl gene identifier for which a URL is created
+#' @param mart The (optional) `biomaRt` connection object. If omitted a URL to search the current Ensembl release is produced.
+#' 
+#' @import magrittr
+#' @importFrom dplyr mutate select
+#' @importFrom stringr str_remove
+#' @importFrom urltools url_compose url_parse
+#' 
+#' @export
+#' 
+get_ensembl_url <- function(ensembl_gene_id, mart) {
+
+  # https://www.ensembl.org/Multi/Search/Results?q=ENSMUSG00000004591
+  # https://www.ensembl.org/Mus_musculus/Gene/Summary?g=ENSMUSG00000004591
+
+  if(missing(ensembl_gene_id))
+    stop('!!! get_ensembl_url must have an ensembl_gene_id')
+
+  if(missing(mart) {
+    url_parse(url='https://www.ensembl.org/') %>%
+      mutate(port=NA,
+             path='Multi/Search/Results',
+             parameter=sprintf(fmt='q=%s', ensembl_gene_id),
+             fragment=NA) -> parsed_url
+  } else if(class(mart)=='Mart') {
+    str_remove(mart@dataset, '_.*$') %>%
+      switch(hsapiens='Homo_sapiens',
+             mdomestica='Monodelphis_domestica',
+             mmusculus='Mus_musculus',
+             scerevisiae='Saccharomyces_cerevisiae') -> species
+    
+    url_parse(url=mart@host) %>%
+      mutate(port=NA,
+             path=sprintf(fmt='%s/Gene/Summary', species),
+             parameter=sprintf(fmt='g=%s', ensembl_gene_id),
+             fragment=NA) -> parsed_url
+  } else {
+    stop('!!! get_ensembl_url does not know what to do with your mart')
+  }
+
+  url_compose(parsed_urls=parsed_url)
+}

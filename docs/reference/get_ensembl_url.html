@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • helpr</title>
+<title>Format a URL to Ensembl — get_ensembl_url • helpr</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Format a URL to Ensembl — get_ensembl_url" />
+<meta property="og:description" content="Uses mart object to produce a URL to a specific feature in Ensembl." />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -105,138 +106,34 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Format a URL to Ensembl</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ChristopherBarrington/helpr/blob/master/R/biomart.R'><code>R/biomart.R</code></a></small>
+    <div class="hidden name"><code>get_ensembl_url.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Uses <code>mart</code> object to produce a URL to a specific feature in Ensembl.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>get_ensembl_url</span><span class='op'>(</span><span class='va'>ensembl_gene_id</span>, <span class='va'>mart</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="clear.html">clear()</a></code> </p>
-        </td>
-        <td><p>Clear the screen</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ensembl_release_to_archive.html">ensembl_release_to_archive()</a></code> </p>
-        </td>
-        <td><p>Retrieve Ensembl archive URL</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_cool_interaction_matrix.html">get_cool_interaction_matrix()</a></code> <code><a href="get_cool_interaction_matrix.html">get_cool_interaction_submatrix()</a></code> </p>
-        </td>
-        <td><p>Read data from a cool (or mcool) file</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_ensembl_url.html">get_ensembl_url()</a></code> </p>
-        </td>
-        <td><p>Format a URL to Ensembl</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_mart.html">get_mart()</a></code> </p>
-        </td>
-        <td><p>Create a biomaRt connection</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="headtail.html">headtail()</a></code> </p>
-        </td>
-        <td><p>Get the top and bottom of a <code>data.frame</code></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="lazyload_cached_chunk.html">lazyload_cached_chunk()</a></code> <code><a href="lazyload_cached_chunk.html">load_all_chunks()</a></code> </p>
-        </td>
-        <td><p>Lazy load a knitr chunk</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="less.html">less()</a></code> </p>
-        </td>
-        <td><p>Stream output less-like</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="list_mcool_resolutions.html">list_mcool_resolutions()</a></code> </p>
-        </td>
-        <td><p>Get the available resolutions of an mcool</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="log_breaks.html">log_breaks()</a></code> <code><a href="log_breaks.html">major_log_breaks()</a></code> <code><a href="log_breaks.html">minor_log_breaks()</a></code> </p>
-        </td>
-        <td><p>Get breaks for a log scale</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="make_tabs_shortcode.html">make_tabs_shortcode()</a></code> </p>
-        </td>
-        <td><p>Make tabs shortcode</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="numeric_to_si.html">numeric_to_si()</a></code> </p>
-        </td>
-        <td><p>Add metric suffixes to numbers</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="open_x11.html">open_x11()</a></code> </p>
-        </td>
-        <td><p>Open X11 on a display</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="preferred_choice.html">preferred_choice()</a></code> </p>
-        </td>
-        <td><p>Make a ranked choice</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="print_object_size.html">print_object_size()</a></code> </p>
-        </td>
-        <td><p>Get the size of an object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="resize_and_show.html">resize_and_show()</a></code> <code><a href="resize_and_show.html">set_panel_dims()</a></code> <code><a href="resize_and_show.html">set_plot_clipping()</a></code> <code><a href="resize_and_show.html">show_resized_plot()</a></code> </p>
-        </td>
-        <td><p>Resize and display a <code>ggplot</code> object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="wideScreen.html">wideScreen()</a></code> <code><a href="wideScreen.html">get_screen_width()</a></code> </p>
-        </td>
-        <td><p>Set width of console</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>ensembl_gene_id</th>
+      <td><p>Ensembl gene identifier for which a URL is created</p></td>
+    </tr>
+    <tr>
+      <th>mart</th>
+      <td><p>The (optional) <code>biomaRt</code> connection object. If omitted a URL to search the current Ensembl release is produced.</p></td>
+    </tr>
     </table>
-  </div>
 
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>

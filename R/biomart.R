@@ -21,7 +21,7 @@ ensembl_release_to_archive <- function(release) {
 #' 
 #' Connect to an Ensembl release server, providing species and release to get a `mart` object.
 #' 
-#' @param species The organism name eg 'mmusulus'
+#' @param species The organism name eg 'mmusculus'
 #' @param release Ensembl release version
 #' @param dataset Ensembl dataset to connect
 #' 

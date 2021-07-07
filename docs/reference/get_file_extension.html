@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a biomaRt connection — get_mart • helpr</title>
+<title>Get the extension of a file — get_file_extension • helpr</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Create a biomaRt connection — get_mart" />
-<meta property="og:description" content="Connect to an Ensembl release server, providing species and release to get a mart object." />
+<meta property="og:title" content="Get the extension of a file — get_file_extension" />
+<meta property="og:description" content="Get the extension of a file" />
 
 
 
@@ -108,31 +108,23 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a biomaRt connection</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ChristopherBarrington/helpr/blob/master/R/biomart.R'><code>R/biomart.R</code></a></small>
-    <div class="hidden name"><code>get_mart.Rd</code></div>
+    <h1>Get the extension of a file</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ChristopherBarrington/helpr/blob/master/R/filenames.R'><code>R/filenames.R</code></a></small>
+    <div class="hidden name"><code>get_file_extension.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Connect to an Ensembl release server, providing species and release to get a <code>mart</code> object.</p>
+    <p>Get the extension of a file</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_mart</span><span class='op'>(</span>species <span class='op'>=</span> <span class='st'>"mmusculus"</span>, release <span class='op'>=</span> <span class='fl'>95</span>, dataset <span class='op'>=</span> <span class='st'>"gene_ensembl"</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_file_extension</span><span class='op'>(</span><span class='va'>path</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>species</th>
-      <td><p>The organism name eg 'mmusculus'</p></td>
-    </tr>
-    <tr>
-      <th>release</th>
-      <td><p>Ensembl release version</p></td>
-    </tr>
-    <tr>
-      <th>dataset</th>
-      <td><p>Ensembl dataset to connect</p></td>
+      <th>path</th>
+      <td><p>At least a file name, potentially the full path</p></td>
     </tr>
     </table>
 

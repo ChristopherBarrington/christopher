@@ -7,7 +7,7 @@
 get_mart(species = "mmusculus", release = 95, dataset = "gene_ensembl", ...)
 }
 \arguments{
-\item{species}{The organism name eg 'mmusulus'}
+\item{species}{The organism name eg 'mmusculus'}
 
 \item{release}{Ensembl release version}
 

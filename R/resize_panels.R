@@ -56,7 +56,7 @@ resize_and_show <- function(x, size, width, height, unit='in', orientation=c('la
   # resize the panel(s)
   set_panel_dims(ggplot_gtable=x, height=height, width=width) %>%
     set_plot_clipping(clip=clip) %>%
-    show_resized_plot()
+    show_newpage_grid()
 }
 
 #' Define the dimensions of a `gtable` panel
@@ -113,8 +113,9 @@ set_plot_clipping <- function(x, clip=TRUE) {
 #' 
 #' @describeIn resize_and_show Display `grid` object on new page
 #' 
-show_resized_plot <- function(x) {
+#' @export
+#' 
+show_newpage_grid <- function(x) {
   grid::grid.newpage()
   grid::grid.draw(x=x)
 }
-

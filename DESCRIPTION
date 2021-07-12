@@ -1,15 +1,15 @@
 Package: helpr
 Title: Tools To Make R Life Easier
-Version: 0.0.0.9001
+Version: 0.1.0
 URL: https://github.com/ChristopherBarrington/helpr
 Authors@R: 
-    person(given = "Christopher",
-           family = "Barrington",
-           role = c("aut", "cre"),
-           email = "christopher.barrington@crick.ac.uk",
-           comment = c(ORCID = "0000-0003-1281-2658"))
+    person(given = 'Christopher',
+           family = 'Barrington',
+           role = c('aut', 'cre'),
+           email = 'christopher.barrington@crick.ac.uk',
+           comment = c(ORCID = '0000-0003-1281-2658'))
 Description: Provides functions to do all kinds of generic and repetitive tasks: plotting an manipulating ggplots, data wrangling, resizing plots.
-License: What license it uses
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown=TRUE)

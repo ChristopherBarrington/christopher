@@ -18,6 +18,7 @@ biocViews:
 Depends:
   magrittr
 Imports:
+  biomaRt,
   gtools,
   rhdf5,
   tidyverse,

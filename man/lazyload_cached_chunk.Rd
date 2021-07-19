@@ -8,7 +8,7 @@
 lazyload_cached_chunk(
   chunk = "unnamed-chunk",
   filter,
-  path = dirname(chunk),
+  path = "cache",
   env = globalenv()
 )
 
@@ -19,7 +19,7 @@ load_all_chunks(cache = "cache")
 
 \item{filter}{Character vector of object names to retain}
 
-\item{path}{Root path within which cached (\verb{*rdx}) are searched}
+\item{path}{Root path within which cached (\verb{*rdx}) are recursively searched}
 
 \item{env}{Environment into which objects are loaded}
 

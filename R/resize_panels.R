@@ -13,7 +13,7 @@
 #' @describeIn resize_and_show Display and resize a `grid` object on new page
 #' @seealso [grid::unit()]
 #' 
-#' @imports grid
+#' @import grid
 #' 
 #' @export
 #'

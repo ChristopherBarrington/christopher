@@ -14,13 +14,13 @@ lazyload_cached_chunk <- function(chunk='unnamed-chunk', filter, path='cache', e
   chunk_file <- list.files(path=path, pattern=sprintf('%s.*.rdx', chunk), full.names=TRUE, recursive=TRUE)
   chunk_file <- stringr::str_remove(chunk_file, pattern='.rdx')
 
-  f (length(chunk_file) > 1)
+  if(length(chunk_file) > 1)
     stop('Cannot load chunk from:\n', paste(chunk_file, collapse='\n'))
-  if (length(chunk_file) == 0)
+  if(length(chunk_file) == 0)
     stop('No chunks called `', chunk, '` found!')
 
   filter_func <- function(x) rep(TRUE, length(x))
-  if (!missing(filter))
+  if(!missing(filter))
     filter_func <- function(x) x %in% filter
 
   lazyLoad(chunk_file, envir=env, filter=filter_func)

@@ -34,7 +34,8 @@ clear <- function()
 #' @export
 #' 
 less <- function(x, ...) {
-  utils::page(x=x, method='p')
+  when(is_tibble(x)~as.data.frame(x), TRUE~x) %>%
+    utils::page(method='p')
 }
 
 #' Open X11 on a display

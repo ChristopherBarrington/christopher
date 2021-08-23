@@ -38,8 +38,9 @@ clear <- function()
 #' @export
 #' 
 less <- function(x, ...) {
-  when(is_tibble(x)~as.data.frame(x), TRUE~x) %>%
-    page(method='p')
+  if(is_tibble(x))
+    x %<>% as.data.frame()
+  page(x=x, method='p')
 }
 
 #' Open X11 on a display

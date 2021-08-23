@@ -31,11 +31,15 @@ clear <- function()
 #' 
 #' Scroll and search through long data streams like with \code{bash} \code{less}.
 #' 
+#' @importFrom purrr when
+#' @importFrom tibble is_tibble
+#' @importFrom utils page
+#' 
 #' @export
 #' 
 less <- function(x, ...) {
   when(is_tibble(x)~as.data.frame(x), TRUE~x) %>%
-    utils::page(method='p')
+    page(method='p')
 }
 
 #' Open X11 on a display

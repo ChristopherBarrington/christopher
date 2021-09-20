@@ -10,7 +10,7 @@
 #' @export
 #' 
 read_dotbabs <- function()
-  get_project_root %>%
+  get_project_root() %>%
     file.path('.babs') %>%
     when(file.exists(.)~.,
          TRUE~{sprintf(fmt='no .babs file found at: %s', .) %>% stop(call.=FALSE)}) %>%

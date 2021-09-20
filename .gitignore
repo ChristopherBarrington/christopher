@@ -16,6 +16,9 @@
 
 # RStudio files
 .Rproj.user/
+.Rprofile
+renv.lock
+renv/
 
 # produced vignettes
 vignettes/*.html

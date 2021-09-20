@@ -6,6 +6,7 @@
 #' @importFrom purrr when
 #' @importFrom readr read_lines
 #' @importFrom stringr str_replace_all
+#' @importFrom stringr str_split
 #' @importFrom yaml read_yaml
 #' 
 #' @export

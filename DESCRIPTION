@@ -1,6 +1,6 @@
 Package: helpr
 Title: Tools To Make R Life Easier
-Version: 0.1.1
+Version: 0.1.2
 URL: https://christopherbarrington.github.io/helpr
 Authors@R: 
     person(given = 'Christopher',
@@ -13,12 +13,15 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown=TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.2
 biocViews:
+Remotes:
+  ChristopherBarrington/datarepository
 Depends:
   magrittr
 Imports:
   biomaRt,
+  datarepository,
   gtools,
   rhdf5,
   tidyverse,

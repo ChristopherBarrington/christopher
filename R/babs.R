@@ -5,8 +5,9 @@
 #' @importFrom purrr pluck
 #' @importFrom purrr map_at
 #' @importFrom purrr when
+#' @importFrom stringr str_replace_all
 #' 
-#' export
+#' @export
 #' 
 read_dotbabs <- function()
   get_project_root %>%

@@ -1,11 +1,12 @@
 #' Read and parse a .babs file
 #' 
 #' @importFrom datarepository system.file
-#' @importFrom yaml read_yaml
 #' @importFrom purrr pluck
 #' @importFrom purrr map_at
 #' @importFrom purrr when
+#' @importFrom readr read_lines
 #' @importFrom stringr str_replace_all
+#' @importFrom yaml read_yaml
 #' 
 #' @export
 #' 

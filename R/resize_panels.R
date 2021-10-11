@@ -13,6 +13,8 @@
 #' @describeIn resize_and_show Display and resize a `grid` object on new page
 #' @seealso [grid::unit()]
 #' 
+#' @value Invisibly returns the \code{grid} object.
+#' 
 #' @import grid
 #' 
 #' @export
@@ -55,8 +57,9 @@ resize_and_show <- function(x, size, width, height, unit='in', orientation=c('la
 
   # resize the panel(s)
   set_panel_dims(ggplot_gtable=x, height=height, width=width) %>%
-    set_plot_clipping(clip=clip) %>%
-    show_newpage_grid()
+    set_plot_clipping(clip=clip) %T>%
+    show_newpage_grid() %>%
+    invisible()
 }
 
 #' Define the dimensions of a `gtable` panel

@@ -23,6 +23,7 @@ Imports:
   biomaRt,
   datarepository,
   gtools,
+  kableExtra,
   rhdf5,
   tidyverse,
   urltools

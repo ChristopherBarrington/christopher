@@ -13,7 +13,7 @@
 #' @describeIn resize_and_show Display and resize a `grid` object on new page
 #' @seealso [grid::unit()]
 #' 
-#' @value Invisibly returns the \code{grid} object.
+#' @return Invisibly returns the `grid` object.
 #' 
 #' @import grid
 #' 

@@ -24,7 +24,9 @@ Imports:
   datarepository,
   gtools,
   kableExtra,
-  rhdf5,
   rjson,
   tidyverse,
   urltools
+Suggests:
+  DESeq2,
+  rhdf5

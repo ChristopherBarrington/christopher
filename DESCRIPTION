@@ -23,6 +23,7 @@ Imports:
   biomaRt,
   datarepository,
   devtools,
+  fs,
   gtools,
   kableExtra,
   plyr,

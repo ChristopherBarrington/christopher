@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Collect software versions — collect_software_versions • helpr</title>
+<title>Read files from my MSigDB cache — read_msigdb • helpr</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Collect software versions — collect_software_versions" />
-<meta property="og:description" content="Collect the version of software and packages loaded for the R session" />
+<meta property="og:title" content="Read files from my MSigDB cache — read_msigdb" />
+<meta property="og:description" content="Reads an MSigDB gmt file and returns a list of genes in pathways." />
 
 
 
@@ -103,37 +103,52 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Collect software versions</h1>
+    <h1>Read files from my MSigDB cache</h1>
     
-    <div class="hidden name"><code>collect_software_versions.Rd</code></div>
+    <div class="hidden name"><code>read_msigdb.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Collect the version of software and packages loaded for the R session</p>
+    <p>Reads an MSigDB <code>gmt</code> file and returns a list of genes in pathways.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>collect_software_versions</span><span class='op'>(</span><span class='va'>conda_envs</span>, packages <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>read_msigdb</span><span class='op'>(</span>
+  collection <span class='op'>=</span> <span class='st'>"h.all"</span>,
+  pathways <span class='op'>=</span> <span class='cn'>NULL</span>,
+  version <span class='op'>=</span> <span class='st'>"7.4"</span>,
+  identifier <span class='op'>=</span> <span class='st'>"symbols"</span>,
+  dbroot <span class='op'>=</span> <span class='st'>"/camp/stp/babs/working/barrinc/db/msigdb"</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>conda_envs</th>
-      <td><p>Names of <code>conda</code> environments to query as a named list. The assumption is that the <code>conda</code> environment(s) actually exist!</p></td>
+      <th>collection</th>
+      <td><p>Name of the collection</p></td>
     </tr>
     <tr>
-      <th>packages</th>
-      <td><p>Should versions of the currently loaded packages be included?</p></td>
+      <th>pathways</th>
+      <td><p>Character vector of pathways in <code>collection</code> to keep</p></td>
+    </tr>
+    <tr>
+      <th>version</th>
+      <td><p>Release version</p></td>
+    </tr>
+    <tr>
+      <th>identifier</th>
+      <td><p>Identifier type: <code>symbols</code> or <code>entrez</code> (<code>entrez</code> may not exist!!)</p></td>
+    </tr>
+    <tr>
+      <th>dbroot</th>
+      <td><p>Path to the root of the MSigDB files</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>r<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>'CONDA_DEFAULT_ENV'</span><span class='op'>)</span>,
-     project<span class='op'>=</span><span class='fu'><a href='read_dotbabs.html'>read_dotbabs</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>$</span><span class='va'>Lims</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-<span class='fu'>collect_software_versions</span><span class='op'>(</span>packages<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error: no .babs file found at: /private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmpod81nO/file10ab46501ca5/reference/.babs</span></div><div class='input'>
-</div></pre>
+    <p>A list of genes in pathways, with pathway name as the key and a character vector of gene identifiers (<code>identifer</code>).</p>
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

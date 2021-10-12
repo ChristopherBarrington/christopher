@@ -48,6 +48,9 @@ show_newpage_grid(x)
 
 \item{ggplot_gtable}{Input \code{gtable} object}
 }
+\value{
+Invisibly returns the \code{grid} object.
+}
 \description{
 Accepts a \code{ggplot} object and converts it to a \code{gtable} before setting panel dimensions and returning (and showing) the modified \code{gtable}.
 }

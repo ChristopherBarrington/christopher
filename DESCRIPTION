@@ -1,6 +1,6 @@
 Package: helpr
 Title: Tools To Make R Life Easier
-Version: 0.1.3
+Version: 0.1.4
 URL: https://christopherbarrington.github.io/helpr
 Authors@R: 
     person(given = 'Christopher',
@@ -25,5 +25,6 @@ Imports:
   gtools,
   kableExtra,
   rhdf5,
+  rjson,
   tidyverse,
   urltools

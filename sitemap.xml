@@ -7,7 +7,13 @@
     <loc>https://christopherbarrington.github.io/helpr/reference/clear.html</loc>
   </url>
   <url>
+    <loc>https://christopherbarrington.github.io/helpr/reference/collect_software_versions.html</loc>
+  </url>
+  <url>
     <loc>https://christopherbarrington.github.io/helpr/reference/ensembl_release_to_archive.html</loc>
+  </url>
+  <url>
+    <loc>https://christopherbarrington.github.io/helpr/reference/filter_dds_by_test_type.html</loc>
   </url>
   <url>
     <loc>https://christopherbarrington.github.io/helpr/reference/get_cool_interaction_matrix.html</loc>
@@ -40,6 +46,9 @@
     <loc>https://christopherbarrington.github.io/helpr/reference/log_breaks.html</loc>
   </url>
   <url>
+    <loc>https://christopherbarrington.github.io/helpr/reference/make_clean_directory.html</loc>
+  </url>
+  <url>
     <loc>https://christopherbarrington.github.io/helpr/reference/make_tabs_shortcode.html</loc>
   </url>
   <url>
@@ -62,5 +71,8 @@
   </url>
   <url>
     <loc>https://christopherbarrington.github.io/helpr/reference/wideScreen.html</loc>
+  </url>
+  <url>
+    <loc>https://christopherbarrington.github.io/helpr/reference/write_parameters_file.html</loc>
   </url>
 </urlset>

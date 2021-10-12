@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get the extension of a file — get_file_extension • helpr</title>
+<title>Create and/or clear out a directory — make_clean_directory • helpr</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Get the extension of a file — get_file_extension" />
-<meta property="og:description" content="Get the extension of a file" />
+<meta property="og:title" content="Create and/or clear out a directory — make_clean_directory" />
+<meta property="og:description" content="Create and/or clear out a directory" />
 
 
 
@@ -103,26 +103,33 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get the extension of a file</h1>
+    <h1>Create and/or clear out a directory</h1>
     
-    <div class="hidden name"><code>get_file_extension.Rd</code></div>
+    <div class="hidden name"><code>make_clean_directory.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get the extension of a file</p>
+    <p>Create and/or clear out a directory</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_file_extension</span><span class='op'>(</span><span class='va'>path</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>make_clean_directory</span><span class='op'>(</span><span class='va'>path</span>, clean <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>path</th>
-      <td><p>At least a file name, potentially the full path</p></td>
+      <td><p>Path to directory to create and/or clean</p></td>
+    </tr>
+    <tr>
+      <th>clean</th>
+      <td><p>Should the contents of <code>path</code> be deleted? Defaults to <code>FALSE</code> for safety.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Invisibly returns the <code>path</code> that may have been created and/or cleaned.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

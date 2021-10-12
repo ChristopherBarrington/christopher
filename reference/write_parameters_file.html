@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get the extension of a file — get_file_extension • helpr</title>
+<title>Write parameters file — write_parameters_file • helpr</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Get the extension of a file — get_file_extension" />
-<meta property="og:description" content="Get the extension of a file" />
+<meta property="og:title" content="Write parameters file — write_parameters_file" />
+<meta property="og:description" content="Writes a data.frame as a csv ready to be ready by an sbatch job array." />
 
 
 
@@ -103,23 +103,31 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get the extension of a file</h1>
+    <h1>Write parameters file</h1>
     
-    <div class="hidden name"><code>get_file_extension.Rd</code></div>
+    <div class="hidden name"><code>write_parameters_file.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get the extension of a file</p>
+    <p>Writes a <code>data.frame</code> as a <code>csv</code> ready to be ready by an <code>sbatch</code> job array.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_file_extension</span><span class='op'>(</span><span class='va'>path</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>write_parameters_file</span><span class='op'>(</span><span class='va'>x</span>, filename <span class='op'>=</span> <span class='st'>"parameters.csv"</span>, add_id <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>path</th>
-      <td><p>At least a file name, potentially the full path</p></td>
+      <th>x</th>
+      <td><p><code>data.frame</code> of parameters</p></td>
+    </tr>
+    <tr>
+      <th>filename</th>
+      <td><p>Path to output file</p></td>
+    </tr>
+    <tr>
+      <th>add_id</th>
+      <td><p>Should an <code>id</code> variable be included, which is just a zero-padded row number</p></td>
     </tr>
     </table>
 

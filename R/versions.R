@@ -42,7 +42,7 @@ collect_software_versions <- function(conda_envs, packages=TRUE) {
           system(intern=TRUE) %>%
           str_c(collapse='') %>%
           fromJSON() %>%
-          (function(x) sapply(x, pluck, 'name') %>% purrr::set_names(x=x)) %>%
+          (function(x) sapply(x, pluck, 'name') %>% set_names(x=x)) %>%
           llply(pluck, 'version')) %>%
       append(versions_list) -> versions_list
 

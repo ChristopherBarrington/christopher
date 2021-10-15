@@ -26,10 +26,12 @@ write_parameters_file <- function(x, filename='parameters.csv', add_id=TRUE) {
       mutate(id={n() %>% seq() %>% str_pad(width={nchar(.) %>% max()}, pad='0', side='left')},
              .before=1)
 
-  # write the contents of x to file
-  write_fmt(x=x, file=filename, col_names=FALSE)
+  # print sbatch info
   sprintf(fmt='#SBATCH --array 1-%d:1', nrow(x)) %>% message()
   sprintf(fmt="IFS=',' read %s <<< $(awk \"NR==${SLURM_ARRAY_TASK_ID}{print}\" %s)", {colnames(x) %>% str_flatten(collapse=' ') %>% str_to_upper()}, basename(filename)) %>% message()
+
+  # write the contents of x to file
+  write_fmt(x=x, file=filename, col_names=FALSE)
 
   invisible(filename)
 }

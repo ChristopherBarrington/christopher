@@ -1,17 +1,17 @@
 #' Lazy load a knitr chunk
 #'
 #' @param chunk Name of cached chunk (from Rmd). Can be a path to a chunk (partial), from which `path` will be taken,
+#' @param cache Root path within which cached (`*rdx`) are recursively searched
 #' @param filter Character vector of object names to retain
-#' @param path Root path within which cached (`*rdx`) are recursively searched
 #' @param env Environment into which objects are loaded
 #'
 #' @describeIn lazyload_cached_chunk Lazy load a cached chunk
 #' 
 #' @export
 #' 
-lazyload_cached_chunk <- function(chunk='unnamed-chunk', filter, path='cache', env=globalenv()) {
+lazyload_cached_chunk <- function(chunk='unnamed-chunk', cache=c('knitr_cache', 'cache'), filter, env=globalenv()) {
   chunk <- basename(chunk)
-  chunk_file <- list.files(path=path, pattern=sprintf('%s.*.rdx', chunk), full.names=TRUE, recursive=TRUE)
+  chunk_file <- list.files(path=cache, pattern=sprintf('%s.*.rdx', chunk), full.names=TRUE, recursive=TRUE)
   chunk_file <- stringr::str_remove(chunk_file, pattern='.rdx')
 
   if(length(chunk_file) > 1)

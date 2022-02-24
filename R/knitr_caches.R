@@ -38,7 +38,7 @@ lazyload_cached_chunk <- function(chunk='unnamed-chunk', cache=c('knitr_cache', 
 #' 
 #' @export
 #' 
-load_all_chunks <- function(cache='cache')
+load_all_chunks <- function(cache=c('knitr_cache', 'cache'))
   list.files(cache, pattern='*RData') %>%
     str_remove('.RData') %>%
     plyr::l_ply(lazyload_cached_chunk, cache=cache)

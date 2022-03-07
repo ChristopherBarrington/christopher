@@ -20,7 +20,7 @@ Remotes:
 Depends:
   magrittr
 Imports:
-  biomaRt,
+  bioc::biomaRt,
   datarepository,
   devtools,
   fs,
@@ -31,5 +31,5 @@ Imports:
   tidyverse,
   urltools
 Suggests:
-  DESeq2,
-  rhdf5
+  bioc::DESeq2,
+  bioc::rhdf5

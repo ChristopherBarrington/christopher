@@ -2,16 +2,17 @@
 #' 
 #' Uses options that I always have to type manually.
 #' 
-#' @param ... Options passed to \code{knitr::kable}
+#' @param ... Options passed to \code{kableExtra::kable}
 #' 
-#' @importFrom knitr kable
+#' @importFrom kableExtra kable
 #' 
-#' @export
+# @export
 #' 
 kable <- function(...) {
+  stop('do not use')
   opts <- list(...)
-  defaults <- list(format=ifelse(interactive(), 'pipe', 'html'), format.args=list(big.mark=','))
+  defaults <- list(format=ifelse(interactive(), 'markdown', 'html'), format.args=list(big.mark=','))
 
-  modifyList(x=defaults, val=opts) %>%
-    do.call(what=knitr::kable)
+  modifyList(x=opts, val=defaults) %>%
+    do.call(what=kableExtra::kable)
 }

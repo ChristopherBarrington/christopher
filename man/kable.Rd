@@ -7,7 +7,7 @@
 kable(...)
 }
 \arguments{
-\item{...}{Options passed to \code{knitr::kable}}
+\item{...}{Options passed to \code{kableExtra::kable}}
 }
 \description{
 Uses options that I always have to type manually.

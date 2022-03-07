@@ -1,6 +1,6 @@
 Package: helpr
 Title: Tools To Make R Life Easier
-Version: 0.1.6
+Version: 0.1.6.9001
 URL: https://christopherbarrington.github.io/helpr
 Authors@R: 
     person(given = 'Christopher',

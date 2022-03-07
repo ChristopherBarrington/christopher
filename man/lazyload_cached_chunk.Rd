@@ -7,23 +7,21 @@
 \usage{
 lazyload_cached_chunk(
   chunk = "unnamed-chunk",
+  cache = c("knitr_cache", "cache"),
   filter,
-  path = "cache",
   env = globalenv()
 )
 
-load_all_chunks(cache = "cache")
+load_all_chunks(cache = c("knitr_cache", "cache"))
 }
 \arguments{
 \item{chunk}{Name of cached chunk (from Rmd). Can be a path to a chunk (partial), from which \code{path} will be taken,}
 
+\item{cache}{Path to the cache from which all chunks are lazily loaded}
+
 \item{filter}{Character vector of object names to retain}
 
-\item{path}{Root path within which cached (\verb{*rdx}) are recursively searched}
-
 \item{env}{Environment into which objects are loaded}
-
-\item{cache}{Path to the cache from which all chunks are lazily loaded}
 }
 \description{
 Lazy load a knitr chunk

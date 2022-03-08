@@ -35,4 +35,4 @@ Imports:
   urltools
 Suggests:
   DESeq2,
-  rhdf5
+  bioc::rhdf5

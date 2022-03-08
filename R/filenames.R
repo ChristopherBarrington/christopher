@@ -22,7 +22,7 @@ get_file_extension <- function(path)
 remove_extension <- function(path, filename_only=TRUE)
   path %>%
     when(filename_only~basename(.), TRUE~.) %>%
-    str_remove(string=path, pattern='\\..+?$')
+    str_remove(pattern='\\..+?$')
 
 #' Create and/or clear out a directory
 #' 

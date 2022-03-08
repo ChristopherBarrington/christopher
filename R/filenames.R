@@ -1,4 +1,4 @@
-#' Get the extension of a file
+#' Get or remove the extension of a file
 #' 
 #' @param path At least a file name, potentially the full path
 #' 
@@ -8,6 +8,21 @@
 #' 
 get_file_extension <- function(path)
   str_remove(string=path, pattern='.*\\.')
+
+#' 
+#' @param filename_only Remove the leading directories from `path`?
+#' 
+#' @importFrom purrr when
+#' @importFrom stringr str_remove
+#' 
+#' @describeIn get_file_extension
+#' 
+#' @export
+#' 
+remove_extension <- function(path, filename_only=TRUE)
+  path %>%
+    when(filename_only~basename(.), TRUE~.) %>%
+    str_remove(string=path, pattern='\\..+?$')
 
 #' Create and/or clear out a directory
 #' 

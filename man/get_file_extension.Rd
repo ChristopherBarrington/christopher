@@ -2,13 +2,23 @@
 % Please edit documentation in R/filenames.R
 \name{get_file_extension}
 \alias{get_file_extension}
-\title{Get the extension of a file}
+\alias{remove_extension}
+\title{Get or remove the extension of a file}
 \usage{
 get_file_extension(path)
+
+remove_extension(path, filename_only = TRUE)
 }
 \arguments{
 \item{path}{At least a file name, potentially the full path}
+
+\item{filename_only}{Remove the leading directories from \code{path}?}
 }
 \description{
-Get the extension of a file
+Get or remove the extension of a file
 }
+\section{Functions}{
+\itemize{
+\item \code{remove_extension}: 
+}}
+

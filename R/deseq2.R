@@ -18,6 +18,10 @@
 #' @export
 #' 
 filter_dds_by_test_type <- function(x, type='Wald') {
+  # check that DESeq2 is installed
+  if(!requireNamespace(package='DESeq2', quietly=TRUE))
+    stop('[filter_dds_by_type] required DESeq2!', call.=FALSE)
+
   # convert case of type so as not to worry about it
   type %<>% str_to_lower()
 

@@ -15,11 +15,11 @@ LazyData: true
 Roxygen: list(markdown=TRUE)
 RoxygenNote: 7.1.2
 biocViews:
-  biomaRt,
-  DESeq2,
-  rhdf5
 Remotes:
-  ChristopherBarrington/datarepository
+  bioc::release/biomaRt,
+  bioc::release/DESeq2,
+  bioc::release/rhdf5,
+  github::ChristopherBarrington/datarepository
 Depends:
   magrittr
 Imports:

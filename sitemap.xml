@@ -43,13 +43,13 @@
     <loc>https://christopherbarrington.github.io/helpr/reference/kable.html</loc>
   </url>
   <url>
-    <loc>https://christopherbarrington.github.io/helpr/reference/lazyload_cached_chunk.html</loc>
-  </url>
-  <url>
     <loc>https://christopherbarrington.github.io/helpr/reference/less.html</loc>
   </url>
   <url>
     <loc>https://christopherbarrington.github.io/helpr/reference/list_mcool_resolutions.html</loc>
+  </url>
+  <url>
+    <loc>https://christopherbarrington.github.io/helpr/reference/load_cached_chunk.html</loc>
   </url>
   <url>
     <loc>https://christopherbarrington.github.io/helpr/reference/log_breaks.html</loc>

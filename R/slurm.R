@@ -39,9 +39,12 @@ write_parameters_file <- function(x, filename='parameters.csv', format=get_file_
   
   when(format,
        str_detect(., '^csv$') ~ sprintf(fmt="IFS=',' read %s <<< $(awk \"NR==(${SLURM_ARRAY_TASK_ID}+1) {print}\" %s)", {colnames(x) %>% str_flatten(collapse=' ') %>% str_to_upper()}, basename(filename)),
-       str_detect(., '^rds$') ~ 'export PARAMETER_SET=${SLURM_ARRAY_TASK_ID}',
+       str_detect(., '^rds$') ~ c('export PARAMETER_SET=${SLURM_ARRAY_TASK_ID}', '',
+                                  '# r script:',
+                                  "# parameter_set <- Sys.getenv('PARAMETER_SET') %>% as.numeric()",
+                                  sprintf(fmt="# readRDS('%s') %%>%% purrr::pluck(parameter_set) %%>%% Map(value=., x=names(.), function(value, x) assign(x=x, value=value, envir=globalenv()))", filename)),
        TRUE ~ stop('`format` must be `csv` or `rds`!, call.=FALSE')) %>%
-    message()
+    cat(sep='\n')
 
   # write the contents of x to file
   when(format,

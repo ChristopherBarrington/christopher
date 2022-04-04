@@ -13,7 +13,7 @@
 #' @importFrom readr write_csv write_tsv write_rds
 #' @importFrom stringr str_detect str_flatten str_pad str_to_upper
 #' 
-#' @value
+#' @return
 #' Invisibly returns the filename that was written.
 #' 
 #' @export

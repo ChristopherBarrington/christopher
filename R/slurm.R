@@ -1,37 +1,48 @@
 
 #' Write parameters file
 #' 
-#' Writes a `data.frame` as a `csv` ready to be ready by an `sbatch` job array.
+#' Writes an object of parameters to file ready for use in an `sbatch` job array.
 #' 
-#' @param x `data.frame` of parameters
-#' @param filename Path to output file
-#' @param add_id Should an `id` variable be included, which is just a zero-padded row number
+#' @param x `data.frame` or `list` of parameters to be written as a `format` file.
+#' @param filename Path to output file.
+#' @param format Output file format using `readr` `write_*` functions. Currently only `csv` or `rds`!
+#' @param add_id Should an `id` variable be included, which is just a zero-padded row number. Defaults to `true` when `x` is some type of `data.frame`.
 #' 
 #' @importFrom dplyr mutate n
-#' @importFrom readr write_csv
-#' @importFrom stringr str_flatten str_pad str_to_upper
+#' @importFrom purrr pluck when
+#' @importFrom readr write_csv write_tsv write_rds
+#' @importFrom stringr str_detect str_flatten str_pad str_to_upper
+#' 
+#' @value
+#' Invisibly returns the filename that was written.
 #' 
 #' @export
 #' 
-write_parameters_file <- function(x, filename='parameters.csv', add_id=TRUE) {
+write_parameters_file <- function(x, filename='parameters.csv', format=get_file_extension(filename), add_id=is_in('data.frame', class(x))) {
   # get the function with with a file will be written
-  fmt <- 'csv' # maybe make this an argument?
-  write_fmt <- get('write_csv')
-  # if(missing(fmt) %>% not())
-  #   filename %<>% fs::path(ext=fmt)
+  str_c('write_', format) %>%
+    get() -> writer
 
   # add a row number as a column
-  if(add_id)
+  if(add_id & !is_in('id', colnames(x)))
     x %<>%
       mutate(id={n() %>% seq() %>% str_pad(width={nchar(.) %>% max()}, pad='0', side='left')},
              .before=1)
 
   # print sbatch info
   sprintf(fmt='#SBATCH --array 1-%d:1', nrow(x)) %>% message()
-  sprintf(fmt="IFS=',' read %s <<< $(awk \"NR==${SLURM_ARRAY_TASK_ID}{print}\" %s)", {colnames(x) %>% str_flatten(collapse=' ') %>% str_to_upper()}, basename(filename)) %>% message()
+  when(format,
+       str_detect(., '^csv$') ~ sprintf(fmt="IFS=',' read %s <<< $(awk \"NR==(${SLURM_ARRAY_TASK_ID}+1) {print}\" %s)", {colnames(x) %>% str_flatten(collapse=' ') %>% str_to_upper()}, basename(filename)),
+       str_detect(., '^rds$') ~ 'export PARAMETER_SET=${SLURM_ARRAY_TASK_ID}',
+       TRUE ~ stop('`format` must be `csv` or `rds`!, call.=FALSE')) %>%
+    message()
 
   # write the contents of x to file
-  write_fmt(x=x, file=filename, col_names=FALSE)
-
-  invisible(filename)
+  when(format,
+       str_detect(., '^rds$') ~ list(),
+       TRUE ~ list(col_names=TRUE)) %>%
+    append(values=list(file=filename, x=x)) %T>%
+    do.call(what=writer) %>%
+    pluck('filename') %>%
+    invisible()
 }

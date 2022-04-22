@@ -9,7 +9,6 @@
 #' @return
 #' A list of `DESeqDataSet` objects; if x is a `DESeqDataSet` object (not a list) then a list is still returned of the one object, named `x`.
 #' 
-#' @import DESeq2
 #' @importFrom magrittr extract
 #' @importFrom purrr discard keep
 #' @importFrom S4Vectors metadata

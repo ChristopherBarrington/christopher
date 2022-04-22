@@ -31,8 +31,8 @@ write_parameters_file <- function(x, filename='parameters.csv', format=get_file_
 
   # print sbatch info
   when(format,
-       str_detect(., '^csv$') ~ nrow(.),
-       str_detect(., '^rds$') ~ length(.),
+       str_detect(., '^csv$') ~ nrow(x),
+       str_detect(., '^rds$') ~ length(x),
        TRUE ~ stop('`format` must be `csv` or `rds`!, call.=FALSE')) %>%
     sprintf(fmt='#SBATCH --array 1-%d:1') %>%
     message()

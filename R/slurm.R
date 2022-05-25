@@ -35,7 +35,7 @@ write_parameters_file <- function(x, filename='parameters.csv', format=get_file_
        str_detect(., '^rds$') ~ length(x),
        TRUE ~ stop('`format` must be `csv` or `rds`!, call.=FALSE')) %>%
     sprintf(fmt='#SBATCH --array 1-%d:1') %>%
-    message()
+    cat(sep='\n')
   
   when(format,
        str_detect(., '^csv$') ~ sprintf(fmt="IFS=',' read %s <<< $(awk \"NR==(${SLURM_ARRAY_TASK_ID}+1) {print}\" %s)", {colnames(x) %>% str_flatten(collapse=' ') %>% str_to_upper()}, basename(filename)),

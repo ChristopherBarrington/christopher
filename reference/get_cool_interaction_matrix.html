@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">helpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.2</span>
       </span>
     </div>
 
@@ -44,38 +44,51 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">get_cool_interaction_matrix</span><span class="op">(</span><span class="va">cool</span>, <span class="va">mcool</span>, <span class="va">resolution</span><span class="op">)</span>
-
-<span class="fu">get_cool_interaction_submatrix</span><span class="op">(</span>
-  <span class="va">chrom1</span>,
-  <span class="va">pos1</span>,
-  <span class="va">range1</span>,
-  chrom2 <span class="op">=</span> <span class="va">chrom1</span>,
-  pos2 <span class="op">=</span> <span class="va">pos1</span>,
-  range2 <span class="op">=</span> <span class="va">range1</span>,
-  <span class="va">mcool</span>,
-  <span class="va">resolution</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_cool_interaction_matrix</span><span class="op">(</span><span class="va">cool</span>, <span class="va">mcool</span>, <span class="va">resolution</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">get_cool_interaction_submatrix</span><span class="op">(</span></span>
+<span>  <span class="va">chrom1</span>,</span>
+<span>  <span class="va">pos1</span>,</span>
+<span>  <span class="va">range1</span>,</span>
+<span>  chrom2 <span class="op">=</span> <span class="va">chrom1</span>,</span>
+<span>  pos2 <span class="op">=</span> <span class="va">pos1</span>,</span>
+<span>  range2 <span class="op">=</span> <span class="va">range1</span>,</span>
+<span>  <span class="va">mcool</span>,</span>
+<span>  <span class="va">resolution</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>cool, mcool</dt>
 <dd><p>Path to the h5 file</p></dd>
+
+
 <dt>mcool, resolution</dt>
 <dd><p>Path to h5 file and resolution to extract</p></dd>
+
+
 <dt>resolution</dt>
 <dd><p>Bin size in the <code>mcool</code> to extract</p></dd>
+
+
 <dt>chrom1, chrom2</dt>
 <dd><p>Chromosomes for intervals</p></dd>
+
+
 <dt>pos1, pos2</dt>
 <dd><p>Start coordinate of intervals</p></dd>
+
+
 <dt>range1, range2</dt>
 <dd><p>Size of intervals (base pairs)</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <code>data.frame</code> of 2D genomic coordinates with their weights and balanced score.</p>
+    
+
+<p>A <code>data.frame</code> of 2D genomic coordinates with their weights and balanced score.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -101,7 +114,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

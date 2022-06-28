@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">helpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.2</span>
       </span>
     </div>
 
@@ -44,28 +44,37 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">write_parameters_file</span><span class="op">(</span>
-  <span class="va">x</span>,
-  filename <span class="op">=</span> <span class="st">"parameters.csv"</span>,
-  format <span class="op">=</span> <span class="fu"><a href="get_file_extension.html">get_file_extension</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span>,
-  add_id <span class="op">=</span> <span class="fu">is_in</span><span class="op">(</span><span class="st">"data.frame"</span>, <span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">write_parameters_file</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  filename <span class="op">=</span> <span class="st">"parameters.csv"</span>,</span>
+<span>  format <span class="op">=</span> <span class="fu"><a href="get_file_extension.html">get_file_extension</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span>,</span>
+<span>  add_id <span class="op">=</span> <span class="fu">is_in</span><span class="op">(</span><span class="st">"data.frame"</span>, <span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p><code>data.frame</code> or <code>list</code> of parameters to be written as a <code>format</code> file.</p></dd>
+
+
 <dt>filename</dt>
 <dd><p>Path to output file.</p></dd>
+
+
 <dt>format</dt>
 <dd><p>Output file format using <code>readr</code> <code>write_*</code> functions. Currently only <code>csv</code> or <code>rds</code>!</p></dd>
+
+
 <dt>add_id</dt>
 <dd><p>Should an <code>id</code> variable be included, which is just a zero-padded row number. Defaults to <code>true</code> when <code>x</code> is some type of <code>data.frame</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Invisibly returns the filename that was written.</p>
+    
+
+<p>Invisibly returns the filename that was written.</p>
     </div>
 
   </div>
@@ -80,7 +89,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

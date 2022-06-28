@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">helpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.2</span>
       </span>
     </div>
 
@@ -44,19 +44,22 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">log_breaks</span><span class="op">(</span>base <span class="op">=</span> <span class="fl">10</span>, max.exp <span class="op">=</span> <span class="fl">7</span>, min.exp <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
-
-<span class="fu">major_log_breaks</span><span class="op">(</span>base <span class="op">=</span> <span class="fl">10</span>, max.exp <span class="op">=</span> <span class="fl">7</span>, min.exp <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
-
-<span class="fu">minor_log_breaks</span><span class="op">(</span>base <span class="op">=</span> <span class="fl">10</span>, max.exp <span class="op">=</span> <span class="fl">7</span>, min.exp <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">log_breaks</span><span class="op">(</span>base <span class="op">=</span> <span class="fl">10</span>, max.exp <span class="op">=</span> <span class="fl">7</span>, min.exp <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">major_log_breaks</span><span class="op">(</span>base <span class="op">=</span> <span class="fl">10</span>, max.exp <span class="op">=</span> <span class="fl">7</span>, min.exp <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">minor_log_breaks</span><span class="op">(</span>base <span class="op">=</span> <span class="fl">10</span>, max.exp <span class="op">=</span> <span class="fl">7</span>, min.exp <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>base</dt>
 <dd><p>Log base</p></dd>
+
+
 <dt>max.exp, min.exp</dt>
 <dd><p>range of exponents to return</p></dd>
+
 </dl></div>
     <div id="functions">
     <h2>Functions</h2>
@@ -68,15 +71,15 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">log_breaks</span><span class="op">(</span>base<span class="op">=</span><span class="fl">10</span>, max.exp<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">log_breaks</span><span class="op">(</span>base<span class="op">=</span><span class="fl">10</span>, max.exp<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1]   1   2   3   4   5   6   7   8   9  10  20  30  40  50  60  70  80  90 100</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">major_log_breaks</span><span class="op">(</span>base<span class="op">=</span><span class="fl">10</span>, max.exp<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">major_log_breaks</span><span class="op">(</span>base<span class="op">=</span><span class="fl">10</span>, max.exp<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1]   1  10 100</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">minor_log_breaks</span><span class="op">(</span>base<span class="op">=</span><span class="fl">10</span>, max.exp<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">minor_log_breaks</span><span class="op">(</span>base<span class="op">=</span><span class="fl">10</span>, max.exp<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  2  3  4  5  6  7  8  9 20 30 40 50 60 70 80 90</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -91,7 +94,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

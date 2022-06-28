@@ -19,9 +19,6 @@
     <loc>https://christopherbarrington.github.io/helpr/reference/ensembl_release_to_archive.html</loc>
   </url>
   <url>
-    <loc>https://christopherbarrington.github.io/helpr/reference/filter_dds_by_test_type.html</loc>
-  </url>
-  <url>
     <loc>https://christopherbarrington.github.io/helpr/reference/get_cool_interaction_matrix.html</loc>
   </url>
   <url>
@@ -38,6 +35,9 @@
   </url>
   <url>
     <loc>https://christopherbarrington.github.io/helpr/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://christopherbarrington.github.io/helpr/reference/iteratively_split_df.html</loc>
   </url>
   <url>
     <loc>https://christopherbarrington.github.io/helpr/reference/kable.html</loc>

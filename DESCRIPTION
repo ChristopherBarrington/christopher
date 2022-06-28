@@ -17,7 +17,6 @@ RoxygenNote: 7.1.2
 biocViews:
 Remotes:
   bioc::release/biomaRt,
-  bioc::release/DESeq2,
   bioc::release/rhdf5,
   github::ChristopherBarrington/datarepository
 Depends:
@@ -34,5 +33,4 @@ Imports:
   urltools
 Suggests:
   biomaRt,
-  DESeq2,
   rhdf5

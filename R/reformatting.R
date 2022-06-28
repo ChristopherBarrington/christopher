@@ -37,7 +37,7 @@ numeric_to_si <- function(i, sep='') {
 #' @param f A function applied to the data frame, once all variables have been used
 #' @param ... Arguments passed to `f`
 #' 
-#' @detail
+#' @details
 #' _May_ assume that every combination of `variables` produces a data frame to which `f` can be applied.
 #' 
 #' @return

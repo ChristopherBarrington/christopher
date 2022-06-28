@@ -27,3 +27,36 @@ numeric_to_si <- function(i, sep='') {
   }
   return(sistring)
 }
+
+#' Split a data frame into a nested list
+#' 
+#' Convert a set of data frame variables into keys of a nested list
+#' 
+#' @param x `data.frame` to split
+#' @param variables An ordered character vector of variables in `x` that will be nested levels of the output list
+#' @param f A function applied to the data frame, once all variables have been used
+#' @param ... Arguments passed to `f`
+#' 
+#' @detail
+#' _May_ assume that every combination of `variables` produces a data frame to which `f` can be applied.
+#' 
+#' @return
+#' A nested list
+#' 
+#' @importFrom magrittr %<>%
+#' @importFrom plyr dlply
+#' @importFrom purrr map_depth
+#' 
+#' @export
+#' 
+iteratively_split_df <- function(x, variables={colnames(x) |> head(n=-1)}, f, ...) {
+  x %<>% dlply(variables[1])
+  for(i in seq_along(variables)[-1]) {
+    x %<>% map_depth(.depth=i-1, dlply, variables[i])
+  }
+
+  if(!missing(f))
+    x %<>% map_depth(.depth=i, f, ...)
+
+  invisible(x)
+}

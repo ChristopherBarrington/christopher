@@ -11,7 +11,7 @@
 #' @export
 #' 
 headtail <- function(x, n=10, n.head=n, n.tail=n) {
-  if(nrow(x)<=(n.head+n.tail)) {
+  if({x %>% when(is.vector(.)~length(.), is.data.frame(.)~nrow(.), TRUE~nrow(.)) %>% is_weakly_less_than(n.head+n.tail)}) {
     x
   } else {
     rbind(head(x=x, n=n.head), tail(x=x, n=n.tail))

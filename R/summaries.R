@@ -14,7 +14,10 @@ headtail <- function(x, n=10, n.head=n, n.tail=n) {
   if({x %>% when(is.vector(.)~length(.), is.data.frame(.)~nrow(.), TRUE~nrow(.)) %>% is_weakly_less_than(n.head+n.tail)}) {
     x
   } else {
-    rbind(head(x=x, n=n.head), tail(x=x, n=n.tail))
+    list(head(x=x, n=n.head), tail(x=x, n=n.tail)) %>%
+      when(is.vector(x)~do.call(what=c, args=.),
+           is.data.frame(x)~do.call(what=rbind, args=.),
+           TRUE~do.call(what=rbind, args=.))
   }
 }
 

@@ -1,17 +1,22 @@
 #' Get the top and bottom of a \code{data.frame}
 #' 
-#' Uses \code{rbind} to return the \code{head} and \code{tail} of a \code{data.frame}.
+#' Uses \code{rbind} to return the \code{head} and \code{tail} of a sufficiently large \code{data.frame}.
 #' 
 #' @param x A \code{data.frame}
 #' @param n,n.head,n.tail Number of rows to head and tail
 #' 
 #' @return
-#' A \code{data.frame} of \code{n.head} and \code{n.tail} rows.
+#' A \code{data.frame} of \code{n.head} and \code{n.tail} rows. If `nrow(x)` would return overlapped rows, `x` is returned.
 #' 
 #' @export
 #' 
-headtail <- function(x, n=10, n.head=n, n.tail=n)
-  rbind(head(x, n=n.head), tail(x, n=n.tail))
+headtail <- function(x, n=10, n.head=n, n.tail=n) {
+  if(nrow(x)<=(n.head+n.tail)) {
+    x
+  } else {
+    rbind(head(x=x, n=n.head), tail(x=x, n=n.tail))
+  }
+}
 
 #' Get the size of an object
 #' 

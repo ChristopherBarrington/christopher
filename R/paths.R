@@ -14,7 +14,7 @@
 #' 
 list(slug=function(...) getwd() %>% basename(),
      knitting=function(...) getwd(),
-     content=function(...) getwd() %>% file.path(., 'content'),
+     content=function(...) getwd() %>% str_remove('/content/.*') %>% file.path(., 'content'),
      website=function(...) getwd() %>% str_remove('/content/.*'),
      analysis=function(...) system('pwd -P | cut -f 1-10 -d/', intern=TRUE) %>% file.path(., 'analysis'),
      project=function(...) system('pwd -P | cut -f 1-10 -d/', intern=TRUE),

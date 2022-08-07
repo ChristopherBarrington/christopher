@@ -44,8 +44,8 @@ Coordinates are filtered from the whole matrix via \code{get_cool_interaction_ma
 }
 \section{Functions}{
 \itemize{
-\item \code{get_cool_interaction_matrix}: Get a genome-wide interaction matrix
+\item \code{get_cool_interaction_matrix()}: Get a genome-wide interaction matrix
 
-\item \code{get_cool_interaction_submatrix}: Get an interaction matrix for a pair of genomic regions
+\item \code{get_cool_interaction_submatrix()}: Get an interaction matrix for a pair of genomic regions
+
 }}
-

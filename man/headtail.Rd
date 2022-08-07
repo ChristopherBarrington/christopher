@@ -12,8 +12,8 @@ headtail(x, n = 10, n.head = n, n.tail = n)
 \item{n, n.head, n.tail}{Number of rows to head and tail}
 }
 \value{
-A \code{data.frame} of \code{n.head} and \code{n.tail} rows.
+A \code{data.frame} of \code{n.head} and \code{n.tail} rows. If \code{nrow(x)} would return overlapped rows, \code{x} is returned.
 }
 \description{
-Uses \code{rbind} to return the \code{head} and \code{tail} of a \code{data.frame}.
+Uses \code{rbind} to return the \code{head} and \code{tail} of a sufficiently large \code{data.frame}.
 }

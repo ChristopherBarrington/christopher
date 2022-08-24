@@ -17,7 +17,6 @@ RoxygenNote: 7.2.1
 biocViews:
 Remotes:
   bioc::biomaRt,
-  bioc::rhdf5,
   github::ChristopherBarrington/datarepository
 Depends:
   magrittr
@@ -32,5 +31,4 @@ Imports:
   tidyverse,
   urltools
 Suggests:
-  biomaRt,
-  rhdf5
+  biomaRt

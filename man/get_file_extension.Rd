@@ -19,6 +19,6 @@ Get or remove the extension of a file
 }
 \section{Functions}{
 \itemize{
-\item \code{remove_extension()}: 
-
+\item \code{remove_extension}: 
 }}
+

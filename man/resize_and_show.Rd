@@ -56,15 +56,15 @@ Accepts a \code{ggplot} object and converts it to a \code{gtable} before setting
 }
 \section{Functions}{
 \itemize{
-\item \code{resize_and_show()}: Display and resize a \code{grid} object on new page
+\item \code{resize_and_show}: Display and resize a \code{grid} object on new page
 
-\item \code{set_panel_dims()}: Alter dimensions of plot area
+\item \code{set_panel_dims}: Alter dimensions of plot area
 
-\item \code{set_plot_clipping()}: Turn clipping off for all grobs in a \code{grid} object
+\item \code{set_plot_clipping}: Turn clipping off for all grobs in a \code{grid} object
 
-\item \code{show_newpage_grid()}: Display \code{grid} object on new page
-
+\item \code{show_newpage_grid}: Display \code{grid} object on new page
 }}
+
 \seealso{
 \code{\link[grid:unit]{grid::unit()}}
 }

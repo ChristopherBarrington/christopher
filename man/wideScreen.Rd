@@ -19,8 +19,8 @@ Uses the width of the console to define the number of characters to print on lin
 }
 \section{Functions}{
 \itemize{
-\item \code{wideScreen}: Set width of the console output
+\item \code{wideScreen()}: Set width of the console output
 
-\item \code{get_screen_width}: Get width of console
+\item \code{get_screen_width()}: Get width of console
+
 }}
-

@@ -22,13 +22,13 @@ Provides breaks for major and minor log-transformed scales.
 }
 \section{Functions}{
 \itemize{
-\item \code{log_breaks}: Log breaks
+\item \code{log_breaks()}: Log breaks
 
-\item \code{major_log_breaks}: Major log breaks
+\item \code{major_log_breaks()}: Major log breaks
 
-\item \code{minor_log_breaks}: Minor log breaks
+\item \code{minor_log_breaks()}: Minor log breaks
+
 }}
-
 \examples{
 log_breaks(base=10, max.exp=2)
 

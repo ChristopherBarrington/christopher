@@ -31,10 +31,10 @@ Any existing objects in the environment will be overwritten when chunk(s) are lo
 }
 \section{Functions}{
 \itemize{
-\item \code{load_cached_chunk}: Load a cached chunk
+\item \code{load_cached_chunk()}: Load a cached chunk
 
-\item \code{load_all_chunks}: Load all cached chunks (alphabetically)
+\item \code{load_all_chunks()}: Load all cached chunks (alphabetically)
 
 importFrom plyr l_ply
-}}
 
+}}

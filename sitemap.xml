@@ -19,9 +19,6 @@
     <loc>https://christopherbarrington.github.io/helpr/reference/ensembl_release_to_archive.html</loc>
   </url>
   <url>
-    <loc>https://christopherbarrington.github.io/helpr/reference/get_cool_interaction_matrix.html</loc>
-  </url>
-  <url>
     <loc>https://christopherbarrington.github.io/helpr/reference/get_ensembl_url.html</loc>
   </url>
   <url>
@@ -44,9 +41,6 @@
   </url>
   <url>
     <loc>https://christopherbarrington.github.io/helpr/reference/less.html</loc>
-  </url>
-  <url>
-    <loc>https://christopherbarrington.github.io/helpr/reference/list_mcool_resolutions.html</loc>
   </url>
   <url>
     <loc>https://christopherbarrington.github.io/helpr/reference/load_cached_chunk.html</loc>

@@ -32,5 +32,7 @@ headtail <- function(x, n=10, n.head=n, n.tail=n) {
 #' 
 #' @export
 #' 
-print_object_size <- function(x, unit='GB')
+print_object_size <- function(x, unit='GB') {
+  .Deprecated('lobstr::obj_size')
   utils::object.size(x=x) %>% format(unit=unit[1])
+}

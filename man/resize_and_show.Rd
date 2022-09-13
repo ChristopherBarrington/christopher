@@ -5,6 +5,7 @@
 \alias{set_panel_dims}
 \alias{set_plot_clipping}
 \alias{show_newpage_grid}
+\alias{get_panel_aspect_ratios}
 \title{Resize and display a \code{ggplot} object}
 \usage{
 resize_and_show(
@@ -28,6 +29,8 @@ set_panel_dims(
 set_plot_clipping(x, clip = TRUE)
 
 show_newpage_grid(x)
+
+get_panel_aspect_ratios(ggplot = NULL, ggplot_gtable = ggplotGrob(ggplot))
 }
 \arguments{
 \item{x}{\code{grid} object}
@@ -63,6 +66,8 @@ Accepts a \code{ggplot} object and converts it to a \code{gtable} before setting
 \item \code{set_plot_clipping()}: Turn clipping off for all grobs in a \code{grid} object
 
 \item \code{show_newpage_grid()}: Display \code{grid} object on new page
+
+\item \code{get_panel_aspect_ratios()}: Display \code{grid} object on new page
 
 }}
 \seealso{

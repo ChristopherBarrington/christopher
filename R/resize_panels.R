@@ -122,3 +122,24 @@ show_newpage_grid <- function(x) {
   grid::grid.newpage()
   grid::grid.draw(x=x)
 }
+
+#' Get the aspect ratio of panel(s) in a `ggplot` object
+#' 
+#' @describeIn resize_and_show Display `grid` object on new page
+#' 
+#' @importFrom gtable is.gtable
+#' 
+#' @export
+#' 
+get_panel_aspect_ratios <- function(ggplot=NULL, ggplot_gtable=ggplotGrob(ggplot)) {
+  if(is.gtable(ggplot))
+      ggplot_gtable <- ggplot
+
+  panels <- grep('panel', ggplot_gtable$layout$name)
+  panel_index_w <- ggplot_gtable$layout$l[panels]
+  panel_index_h <- ggplot_gtable$layout$t[panels]
+
+  widths <- ggplot_gtable$widths[panel_index_w]
+  heights <- ggplot_gtable$heights[panel_index_h]
+  list(widths, heights) |> lapply(as.numeric) |> Reduce(f='/')
+}

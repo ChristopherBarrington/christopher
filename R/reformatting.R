@@ -50,10 +50,12 @@ numeric_to_si <- function(i, sep='') {
 #' @export
 #' 
 iteratively_split_df <- function(x, variables={colnames(x) |> head(n=-1)}, f, ...) {
-  x %<>% dlply(variables[1])
-  for(i in seq_along(variables)[-1]) {
-    x %<>% map_depth(.depth=i-1, dlply, variables[i])
-  }
+  i <- 1
+  x %<>% dlply(variables[i])
+  
+  if(length(variables) > 1)
+    for(i in seq_along(variables)[-1])
+      x %<>% map_depth(.depth=i-1, dlply, variables[i])
 
   if(!missing(f))
     x %<>% map_depth(.depth=i, f, ...)

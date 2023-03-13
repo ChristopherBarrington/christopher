@@ -15,6 +15,8 @@
 #' @return
 #' A character vector for the shortcode to include in the markdown.
 #' 
+#' @export
+#'
 make_tabs_shortcode <- function(content, tabsets=content, chunkname, output_function=show, target_classes=c('ggplot', 'kable'), depth) {
   if(missing(chunkname))
     chunkname <- opts_current$get('label')

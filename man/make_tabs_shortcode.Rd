@@ -4,14 +4,34 @@
 \alias{make_tabs_shortcode}
 \title{Make tabs shortcode}
 \usage{
-make_tabs_shortcode(x, tabset_name = "chunk_name")
+make_tabs_shortcode(
+  content,
+  tabsets = content,
+  chunkname,
+  output_function = show,
+  target_classes = c("ggplot", "kable"),
+  depth
+)
 }
 \arguments{
-\item{x}{List (of lists) from which tabs will be created}
+\item{content}{List (of lists) containing content to include in a tab}
+
+\item{tabsets}{List (of lists) containing keys of the \code{content} list (not of lists)}
+
+\item{chunkname}{Character name of the output tabset}
+
+\item{output_function}{Function used to print/plot/etc}
+
+\item{target_classes}{Set of classes that cause \code{output_function} to run}
+
+\item{depth}{Number of elements to traverse before \code{output_function} is run}
 }
 \value{
 A character vector for the shortcode to include in the markdown.
 }
 \description{
 Write a shortcode to create tabs from a (nested) list.
+}
+\details{
+It would be better to not use \code{tabsets} and convert a list's indexes into a nested list structure.
 }

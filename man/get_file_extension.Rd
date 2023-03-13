@@ -2,12 +2,12 @@
 % Please edit documentation in R/filenames.R
 \name{get_file_extension}
 \alias{get_file_extension}
-\alias{remove_extension}
+\alias{remove_extension.real}
 \title{Get or remove the extension of a file}
 \usage{
 get_file_extension(path)
 
-remove_extension(path, filename_only = TRUE)
+remove_extension.real(path, filename_only = TRUE)
 }
 \arguments{
 \item{path}{At least a file name, potentially the full path}
@@ -19,6 +19,6 @@ Get or remove the extension of a file
 }
 \section{Functions}{
 \itemize{
-\item \code{remove_extension()}: 
+\item \code{remove_extension.real()}: 
 
 }}

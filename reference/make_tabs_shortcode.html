@@ -44,13 +44,40 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">make_tabs_shortcode</span><span class="op">(</span><span class="va">x</span>, tabset_name <span class="op">=</span> <span class="st">"chunk_name"</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">make_tabs_shortcode</span><span class="op">(</span></span>
+<span>  <span class="va">content</span>,</span>
+<span>  tabsets <span class="op">=</span> <span class="va">content</span>,</span>
+<span>  <span class="va">chunkname</span>,</span>
+<span>  output_function <span class="op">=</span> <span class="va">show</span>,</span>
+<span>  target_classes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ggplot"</span>, <span class="st">"kable"</span><span class="op">)</span>,</span>
+<span>  <span class="va">depth</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>x</dt>
-<dd><p>List (of lists) from which tabs will be created</p></dd>
+    <dl><dt>content</dt>
+<dd><p>List (of lists) containing content to include in a tab</p></dd>
+
+
+<dt>tabsets</dt>
+<dd><p>List (of lists) containing keys of the <code>content</code> list (not of lists)</p></dd>
+
+
+<dt>chunkname</dt>
+<dd><p>Character name of the output tabset</p></dd>
+
+
+<dt>output_function</dt>
+<dd><p>Function used to print/plot/etc</p></dd>
+
+
+<dt>target_classes</dt>
+<dd><p>Set of classes that cause <code>output_function</code> to run</p></dd>
+
+
+<dt>depth</dt>
+<dd><p>Number of elements to traverse before <code>output_function</code> is run</p></dd>
 
 </dl></div>
     <div id="value">
@@ -58,6 +85,10 @@
     
 
 <p>A character vector for the shortcode to include in the markdown.</p>
+    </div>
+    <div id="details">
+    <h2>Details</h2>
+    <p>It would be better to not use <code>tabsets</code> and convert a list's indexes into a nested list structure.</p>
     </div>
 
   </div>

@@ -19,15 +19,10 @@ get_file_extension <- function(path)
 #' 
 #' @export
 #' 
-remove_extension.real <- function(path, filename_only=TRUE)
+remove_extension <- function(path, filename_only=TRUE)
   path %>%
     when(filename_only~basename(.), TRUE~.) %>%
     str_remove(pattern='\\..+?$')
-
-remove_extension <- function(path, filename_only=TRUE) # temporary for yasu
-  path %>%
-    when(filename_only~basename(.), TRUE~.) %>%
-    fs::path_ext_remove()
 
 #' Create and/or clear out a directory
 #' 

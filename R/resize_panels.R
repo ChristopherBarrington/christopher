@@ -20,6 +20,13 @@
 #' @export
 #'
 resize_and_show <- function(x, size, width, height, unit='in', orientation=c('landscape','portrait'), aspect=1.6, clip=TRUE) {
+  # wrangle x into a gtable
+  x %<>%
+    when(class(.) %>% is.element(el='ggplot') ~ ggplotGrob(.),
+         class(.) %>% is.element(el='pheatmap') ~ pluck(., 'gtable') %>% (function(x) {x$layout$name[x$layout$name=='matrix'] <- 'panel' ; x}),
+         class(.) %>% is.element(el='gtable') ~ .,
+         TRUE~class(.) %>% str_c(collapse='/') %>% sprintf(fmt='(resize_and_show) do not know what to do when x is a %s') %>% stop(call.=FALSE))
+
   # wrangle dimensions
   orientation %<>% head(n=1) %>% str_extract('^.')
   if(!is_in(orientation, c('l','p')))
@@ -30,6 +37,17 @@ resize_and_show <- function(x, size, width, height, unit='in', orientation=c('la
 
   if(!missing(width) & !missing(height) && is.null(width) && is.null(height))
     stop('(resize_and_show) both width and height are NULL; no need to resize?', call.=FALSE)
+
+  if(is.null(aspect)) {
+    panels <- grep('panel', x$layout$name)
+    panel_index_w <- unique(x$layout$l[panels])
+    panel_index_h <- unique(x$layout$t[panels])
+
+    w <- x$widths[panel_index_w] %>% as.numeric()
+    h <- x$heights[panel_index_h] %>% as.numeric()
+
+    aspect <- w / h
+  }
 
   if(!missing(size))
     width <- height <- as.numeric(size)
@@ -47,13 +65,6 @@ resize_and_show <- function(x, size, width, height, unit='in', orientation=c('la
     width %<>% as.numeric() %>% unit(units=unit)
   if(!is.null(height))
     height %<>% as.numeric() %>% unit(units=unit)
-
-  # wrangle x into a gtable
-  x %<>%
-    when(class(.) %>% is.element(el='ggplot') ~ ggplotGrob(.),
-         class(.) %>% is.element(el='pheatmap') ~ pluck(., 'gtable') %>% (function(x) {x$layout$name[x$layout$name=='matrix'] <- 'panel' ; x}),
-         class(.) %>% is.element(el='gtable') ~ .,
-         TRUE~class(.) %>% str_c(collapse='/') %>% sprintf(fmt='(resize_and_show) do not know what to do when x is a %s') %>% stop(call.=FALSE))
 
   # resize the panel(s)
   set_panel_dims(ggplot_gtable=x, height=height, width=width) %>%

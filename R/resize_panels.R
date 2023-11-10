@@ -22,7 +22,8 @@
 resize_and_show <- function(x, size, width, height, unit='in', orientation=c('landscape','portrait'), aspect=1.6, clip=TRUE) {
   # wrangle x into a gtable
   x %<>%
-    when(class(.) %>% is.element(el='ggplot') ~ ggplotGrob(.),
+    when(class(.) %>% is.element(el='patchwork') ~ patchworkGrob(.),
+         class(.) %>% is.element(el='ggplot') ~ ggplotGrob(.),
          class(.) %>% is.element(el='pheatmap') ~ pluck(., 'gtable') %>% (function(x) {x$layout$name[x$layout$name=='matrix'] <- 'panel' ; x}),
          class(.) %>% is.element(el='gtable') ~ .,
          TRUE~class(.) %>% str_c(collapse='/') %>% sprintf(fmt='(resize_and_show) do not know what to do when x is a %s') %>% stop(call.=FALSE))

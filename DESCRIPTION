@@ -29,3 +29,5 @@ Imports:
   rjson,
   tidyverse,
   urltools
+Suggests:
+  biomaRt
